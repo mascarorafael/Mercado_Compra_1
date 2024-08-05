@@ -1,0 +1,9 @@
+<h1>Detalhes do Pedido</h1>
+
+<p><strong>ID do Pedido:</strong> <%= @order.id %></p>
+<p><strong>Produto:</strong> <%= @order.product.name %></p>
+<p><strong>Preço Total:</strong> <%= number_to_currency(@order.total_price) %></p>
+<p><strong>Data do Pedido:</strong> <%= @order.created_at.strftime("%d/%m/%Y %H:%M") %></p>
+
+<%= link_to "Voltar à Lista de Pedidos", orders_path, class: "btn btn-secondary" %>
+<%= link_to "Voltar ao Produto", product_path(@order.product), class: "btn btn-secondary" %>
