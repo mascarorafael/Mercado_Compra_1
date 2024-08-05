@@ -4,5 +4,11 @@
 <p><%= @product.price %></p>
 <p><%= @product.quantity %></p>
 
-<%= link_to 'edit', edit_product_path(@product) %>
-<%= link_to 'products', products_path %>
+<% if @product.photo.attached? %>
+  <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+<br>
+<br>
+<%= link_to "Editar", edit_product_path(@product) %>
+<%= link_to "Voltar", products_path %>
+<%= link_to "Excluir", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" } %>
