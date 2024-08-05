@@ -1,9 +1,10 @@
 <h2>new page</h2>
 
 
-<%= simple_form_for(@product) do |f| %>
+<%= simple_form_for(@product, html: { multipart: true }) do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :quantity %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
