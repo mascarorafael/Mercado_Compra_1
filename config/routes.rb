@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # root to: "pages#index"
-  resources :products
+  resources :products do
+    resources :orders, only: [:new, :create]
+    resources :reviews, only: [:create]
+  end
 
-
-
-
-
-
+  resources :orders, only: [:index, :show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

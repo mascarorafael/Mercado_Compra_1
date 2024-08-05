@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    # Filtra produtos disponíveis
+    @products = Product.where(available: true)
   end
 
   def show

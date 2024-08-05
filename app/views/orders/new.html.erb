@@ -1,0 +1,12 @@
+<h1>Comprar <%= @product.name %></h1>
+
+<%= simple_form_for @order, url: product_orders_path(@product) do |form| %>
+  <%= form.input :product_id, :disabled => true, input_html: { value: @product.id } %>
+  <%= form.input :total_price, :disabled => true, input_html: { value: @product.price } %>
+
+  <div class="form-actions">
+    <%= form.button :submit, "Confirmar Compra", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar ao Produto", product_path(@product), class: "btn btn-secondary" %>
