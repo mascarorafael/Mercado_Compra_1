@@ -1,8 +1,17 @@
 <h1>Comprar <%= @product.name %></h1>
 
-<%= simple_form_for @order, url: product_orders_path(@product) do |form| %>
-  <%= form.input :product_id, :disabled => true, input_html: { value: @product.id } %>
-  <%= form.input :total_price, :disabled => true, input_html: { value: @product.price } %>
+<%= simple_form_for @order, url: product_orders_path(@product), method: :post do |form| %>
+  <%= form.hidden_field :product_id, value: @product.id %>
+  <%= form.hidden_field :total_price, value: @product.price %>
+
+  <div class="form-group">
+    <%= form.label :product_id, "ID do Produto" %>
+    <%= form.text_field :product_id, value: @product.id, disabled: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :total_price, "Preço Total" %>
+    <%= form.text_field :total_price, value: number_to_currency(@product.price), disabled: true, class: "form-control" %>
+  </div>
 
   <div class="form-actions">
     <%= form.button :submit, "Confirmar Compra", class: "btn btn-primary" %>

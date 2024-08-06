@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   def index
-    # Filtra produtos disponíveis
     @products = Product.where(available: true)
   end
 
   def show
     @product = Product.find(params[:id])
+    @already_purchased = current_user.orders.where(product_id: @product.id).exists?
   end
 
   def new
