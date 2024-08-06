@@ -1,12 +1,134 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  background: #444444;
+}
+
+.navbar-lewagon .container {
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo do contêiner */
+  align-items: center; /* Alinha verticalmente o conteúdo no centro */
+  position: relative; /* Necessário para centralizar o conteúdo */
+}
+
+.navbar-lewagon .navbar-brand {
+  margin-right: -320px; /* Espaço entre o logo e o menu */
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centraliza o menu */
+  flex-grow: 1; /* Permite que o menu use o espaço restante */
+}
+
+.navbar-lewagon .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Alinha verticalmente os itens do menu */
+  margin-bottom: 0; /* Remove a margem inferior padrão dos itens da lista */
+  padding-left: 0; /* Remove o padding padrão da lista */
+  padding-right: 0; /* Remove o padding padrão da lista */
+  list-style: none; /* Remove os marcadores padrão */
+}
+
+.navbar-lewagon .nav-item {
+  margin-left: 15px; /* Espaço entre os itens do menu */
+}
+
+.navbar-lewagon .nav-link {
+  color: white; /* Define a cor do texto do menu como branco */
+  text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.navbar-lewagon .nav-link:hover {
+  color: #f8f9fa; /* Cor do texto ao passar o mouse sobre o item do menu */
+}
+
+.navbar-lewagon .btn-enter {
+  background-color: #444444 !important;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  font-size: 11px !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  text-decoration: none !important;
+}
+
+.navbar-lewagon .btn-enter:hover {
+  background-color: #555555 !important;
+}
+
+.navbar-lewagon .nav-item .btn-register {
+  background-color: #AAC86F; /* Cor de fundo do botão de registro */
+  color: black; /* Cor do texto do botão de registro */
+  border: 1px solid black; /* Borda preta para o botão de registro */
+  border-radius: 4px; /* Leve arredondamento das bordas */
+  padding: 8px 16px; /* Espaçamento interno do botão */
+  font-size: 11px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
+  text-align: center; /* Alinha o texto no centro */
+  text-decoration: none; /* Remove o sublinhado do texto */
+}
+
+.navbar-lewagon .nav-item .btn-register:hover {
+  background-color: #9CC25D; /* Cor de fundo do botão de registro ao passar o mouse */
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 30px; /* Ajuste o tamanho do logo conforme necessário */
+  margin-left: 250px;
+}
+
+.navbar-lewagon .dropdown-menu.login-dropdown {
+  background-color: white; /* Fundo branco do dropdown */
+  border: 1px solid black; /* Borda preta do dropdown */
+  padding: 20px; /* Espaçamento interno do dropdown */
+  width: 200px; /* Largura do dropdown */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.navbar-lewagon .dropdown-menu .form-inputs input {
+  margin-bottom: 10px; /* Espaçamento entre os campos do formulário */
+}
+
+.navbar-lewagon .dropdown-menu .form-actions {
+  text-align: center; /* Centraliza o botão de login */
+}
+
+.navbar-lewagon .dropdown-menu .form-actions button {
+  width: 100%; /* Largura total do botão */
+}
+
+/* Estilo para o dropdown de registro */
+.dropdown-menu.register-dropdown {
+  background-color: white; /* Cor de fundo do dropdown */
+  border: 1px solid black; /* Borda preta ao redor do dropdown */
+  border-radius: 4px; /* Leve arredondamento das bordas do dropdown */
+  padding: 16px; /* Espaçamento interno do dropdown */
+  width: 200px; /* Largura do dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do dropdown */
+}
+
+.dropdown-form .form-inputs {
+  margin-bottom: 10px; /* Espaço abaixo dos campos de entrada */
+}
+
+.dropdown-form .form-actions {
+  text-align: center; /* Alinha o botão de cadastro ao centro */
+}
+
+.dropdown-form .form-control {
+  margin-bottom: 10px; /* Espaço abaixo dos campos de entrada */
+}
+
+.dropdown-form .btn-submit {
+  background-color: #131388; /* Cor de fundo do botão de cadastro */
+  color: rgb(255, 255, 255); /* Cor do texto do botão de cadastro */
+  border: 1px solid black; /* Borda preta do botão de cadastro */
+  border-radius: 4px; /* Leve arredondamento das bordas do botão de cadastro */
+  padding: 8px 16px; /* Espaçamento interno do botão de cadastro */
+  font-size: 11px; /* Tamanho da fonte do botão de cadastro */
+  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
+  text-align: center; /* Alinha o texto ao centro */
 }
