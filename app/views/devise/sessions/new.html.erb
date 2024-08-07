@@ -1,22 +1,53 @@
-
-
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div id="banner">
+  <div class="banner-content">
+    <div class="container ms-5 ps-5">
+      <h3 class="ms-4 ps-5">UMA NOVA ERA</h3>
+      <h1 class="ms-4 ps-5 text-white">A plataforma de desapego para chamar de sua</h1>
+      <%= image_tag "home/avaliacao.png", class: "ms-4 ps-5" %>
+    </div>
+    <%= image_tag "home/Casa.png", class: "banner-image" %>
   </div>
+</div>
+<br><br>
+<div class="container-content">
+  <div class="container ms-5 ps-5">
+    <h6 class="ms-5 ps-5 mb-1">COMUNIDADE ENGAJADA</h6>
+    <h2 class="ms-5 ps-5">Os desapegados da semana<br>procuraram por esses itens:</h2>
+    <br>
+    <br>
+    <div id="product-carousel" class="carousel slide">
+      <div class="carousel-inner ms-5 ps-5">
+        <% products_with_photos = @products.select { |product| product.photos.attached? } %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+        <% products_with_photos.each_slice(4).with_index do |products_slice, slice_index| %>
+          <div class="carousel-item <%= "active" if slice_index == 0 %>">
+            <div class="d-flex flex-nowrap">
+              <% products_slice.each do |product| %>
+                <div class="product-card">
+                  <% if product.photos.attached? %>
+                    <%= image_tag rails_blob_path(product.photos.first, disposition: "attachment"), class: "card-img-top" %>
+                  <% end %>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="card-title mb-0"><%= product.name %></h5>
+                      <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-custom" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

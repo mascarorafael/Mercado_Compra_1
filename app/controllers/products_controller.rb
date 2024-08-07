@@ -15,10 +15,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to product_path(@product) # Redireciona para a página de show do produto
     else
-      p @product.errors.full_messages
       render :new
     end
   end
@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
+      Rails.logger.debug { "Fotos atualizadas: #{@product.photos.map(&:key).inspect}" }
       flash[:notice] = "#{@product.name} foi atualizado com sucesso."
       redirect_to @product
     else
@@ -48,6 +49,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :quantity, photo: [])
+    params.require(:product).permit(:name, :price, :quantity, photos: [])
   end
 end

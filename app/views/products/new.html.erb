@@ -1,10 +1,17 @@
-<h2>new page</h2>
-
+<h2>Criação de Produto</h2>
 
 <%= simple_form_for(@product, html: { multipart: true }) do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :quantity %>
-  <%= f.input :photo, as: :file, input_html: {multiple: true} %>
-  <%= f.submit %>
+
+  <div id="photos-container">
+    <div class="photo-field">
+      <%= f.input :photos, as: :file, input_html: { accept: "image/*", multiple: true } %>
+    </div>
+  </div>
+
+  <button type="button" id="add-photo-field">Adicionar Outra Foto</button>
+
+  <%= f.submit "Criar Produto" %>
 <% end %>
