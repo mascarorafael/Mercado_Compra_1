@@ -63,26 +63,26 @@
                   <% end %>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                <%= link_to "#", class: "btn-register nav-link dropdown-toggle", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-                  DES<strong>APEGUE-SE</strong>
-                <% end %>
-                <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
-                  <h2>Criar conta</h2>
-                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
-                    <%= f.error_notification %>
-                    <div class="form-inputs">
-                      <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: "form-control" %>
-                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class: "form-control" %>
-                      <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class: "form-control" %>
-                    </div>
-                    <div class="form-actions">
-                      <%= f.button :submit, "Criar conta", class: "btn-submit" %>
-                    </div>
-                  <% end %>
-                  <%= render "devise/shared/links", resource_name: :user %>
-                </div>
-              </li>
+<li class="nav-item dropdown">
+  <%= link_to "#", class: "btn-register nav-link dropdown-toggle", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+    DES<strong>APEGUE-SE</strong>
+  <% end %>
+  <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
+    <h2>Criar conta</h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: "form-control" %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class: "form-control" %>
+        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class: "form-control" %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Criar conta", class: "btn-submit" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links", resource_name: :user %>
+  </div>
+</li>
             <% end %>
 
           </ul>

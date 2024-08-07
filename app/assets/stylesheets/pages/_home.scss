@@ -62,38 +62,47 @@ h1, h2 {
   display: flex;
   flex-wrap: nowrap; /* Mantém os itens em uma linha única */
   width: 100%;
+  gap: 15px; /* Espaçamento entre os cards */
 }
 
 .product-card {
-  border: 3px solid #E8EDDF;
-  background-color: #FBFFF5;
+  border: 8px solid #E8EDDF;
+  background-color: #AAC86F;
   width: 100%; /* Ajusta conforme necessário */
   max-width: 364px; /* Ajusta a largura máxima dos cards */
   flex: 1 0 auto; /* Permite que o card cresça conforme necessário */
-  margin-right: 15px; /* Espaçamento entre os cards */
   border-radius: 10px; /* Border radius para o card */
   overflow: hidden; /* Garante que o conteúdo não ultrapasse o card */
+  position: relative; /* Permite o posicionamento absoluto do card-body */
 }
 
 .product-card img {
   height: 364px; /* Altura da imagem */
-  width: 364px; /* Garante que a imagem não ultrapasse o card */
+  width: 100%; /* Ajusta a largura da imagem para o card */
   object-fit: cover; /* Ajusta a imagem para cobrir o card sem distorcer */
 }
 
 .card-body {
   background-color: #E8EDDF;
-  border-radius: 0 0 10px 10px; /* Adiciona border-radius ao fundo do card */
   padding: 10px;
+  position: absolute; /* Posiciona o corpo do card na parte inferior do card */
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Garante que o corpo do card ocupe toda a largura do card */
+  z-index: 1; /* Garante que o card-body fique sobre a imagem */
+  display: flex;
+  align-items: center; /* Alinha verticalmente o conteúdo dentro do card-body */
+  justify-content: space-between; /* Coloca espaço entre o título e o botão */
 }
 
 .card-title {
-  margin-bottom: 0; /* Remove a margem inferior do título */
+  margin: 0; /* Remove a margem do título */
+  color: #1A1C15;
 }
 
 .btn-custom {
   background-color: #AAC86F;
-  color: #fff;
+  color: #1A1C15;
   border-radius: 5px;
   padding: 5px 10px;
   text-align: center;
@@ -102,10 +111,84 @@ h1, h2 {
   white-space: nowrap; /* Garante que o botão não quebre para uma nova linha */
 }
 
-.carousel-control-prev, .carousel-control-next {
-  width: 5%;
+.btn-custom:hover {
+  background-color: #8ab348;
+  color: #1A1C15;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  white-space: nowrap; /* Garante que o botão não quebre para uma nova linha */
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
   width: 5%;
+  color: #1A1C15; /* Cor do ícone */
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #1A1C15; /* Cor de fundo dos ícones ao passar o mouse */
+  border-radius: 40%;
+}
+
+.home .btn-register {
+  background-color: #AAC86F; /* Cor de fundo do botão de registro */
+  color: #1A1C15; /* Cor do texto do botão de registro */
+  border-radius: 5px; /* Leve arredondamento das bordas */
+  padding: 8px 16px; /* Espaçamento interno do botão */
+  font-size: 15px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
+  text-align: center; /* Alinha o texto no centro */
+  text-decoration: none; /* Remove o sublinhado do texto */
+}
+
+.home .btn-register:hover {
+  background-color: #8ab348; /* Cor de fundo do botão de registro ao passar o mouse */
+}
+
+.content-container-1 {
+  display: flex; /* Usa flexbox para posicionar os itens lado a lado */
+  align-items: flex-start; /* Alinha os itens no início do contêiner (opcional, ajustável) */
+  gap: 20px; /* Espaçamento entre a imagem e a div (ajuste conforme necessário) */
+}
+
+.text-right {
+  flex: 1; /* Faz a div ocupar o espaço restante disponível */
+  text-align: justify; /* Justifica o texto dentro da div */
+}
+
+.text-right h6, .text-right h2, .text-right p {
+  margin-left: 0; /* Remove a margem esquerda */
+  margin-right: 0; /* Remove a margem direita */
+  padding: 0; /* Remove o padding */
+}
+
+.text-right h6 {
+  margin-top: 0; /* Ajusta a margem superior, se necessário */
+}
+
+.text-right h2 {
+  margin-top: 10px; /* Ajusta a margem superior, se necessário */
+}
+
+.text-right p {
+  margin-top: 10px; /* Ajusta a margem superior, se necessário */
+}
+
+.btn-register {
+  background-color: #AAC86F; /* Cor de fundo do botão de registro */
+  color: #1A1C15; /* Cor do texto do botão de registro */
+  border-radius: 5px; /* Leve arredondamento das bordas */
+  padding: 8px 16px; /* Espaçamento interno do botão */
+  font-size: 15px; /* Tamanho da fonte */
+  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
+  text-align: center; /* Alinha o texto no centro */
+  text-decoration: none; /* Remove o sublinhado do texto */
+}
+
+.btn-register:hover {
+  background-color: #8ab348; /* Cor de fundo do botão de registro ao passar o mouse */
 }
