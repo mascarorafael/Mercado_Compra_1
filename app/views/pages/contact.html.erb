@@ -1,0 +1,12 @@
+<h2>Detalhes do Produto</h2>
+<div class="d-flex">
+  <div class="col-8">
+    <% if @product.photos.attached? %>
+      <% @product.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;" %>
+      <% end %>
+    <% else %>
+      <p>Nenhuma foto disponível.</p>
+    <% end %>
+    <br>
+  </div>
