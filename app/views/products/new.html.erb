@@ -5,6 +5,6 @@
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :quantity %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, as: :file, input_html: {multiple: true} %>
   <%= f.submit %>
 <% end %>
