@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<h2>Detalhes do Produto</h2>
-<div class="d-flex">
-<div class="d-flex flex-wrap">
-  <% if @product.photos.attached? %>
-    <% @product.photos.each_slice(2) do |photo_pair| %>
-      <div class="d-flex w-100 mb-4">
-        <% photo_pair.each do |photo| %>
-          <div class="flex-fill p-2" style="max-width: 50%;">
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
-          </div>
-        <% end %>
-      </div>
-=======
 <div class="d-flex mt-5 ms-5 ps-5">
   <!-- Container para as fotos -->
   <div class="d-flex flex-wrap flex-grow-1 me-1 mt-5">
@@ -27,19 +13,9 @@
       <% end %>
     <% else %>
       <p>Nenhuma foto disponível.</p>
->>>>>>> master
     <% end %>
   </div>
 
-<<<<<<< HEAD
-  <div class="col-4">
-    <h6>ELETRÔNICO</h6>
-    <h2><%= @product.name %></h2>
-    <p><%= number_to_currency(@product.price) %></p>
-
-    <p>Descrição:</p>
-    <p><%= @product.description %></p>
-=======
   <!-- Coluna com os detalhes do produto -->
   <div class="col-4 mt-5 ps-4 custom-margin-right"> <!-- Adicione margin-left -->
     <h7>ELETRÔNICO</h7>
@@ -49,8 +25,6 @@
     <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
     <p class="mb-3"><%= @product.description %></p>
     <p class="mb-3">_______________________________________</p>
->>>>>>> master
-
     <% if user_signed_in? %>
       <% if @already_purchased %>
         <%= button_tag "JÁ VENDIDO", class: "btn btn-custom", disabled: true %>
@@ -60,11 +34,6 @@
       </div>
       <% end %>
     <% end %>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
     <br>
 <div class="button-container">
   <% if current_user == @product.user %>
