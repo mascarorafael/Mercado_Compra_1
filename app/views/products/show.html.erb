@@ -15,7 +15,6 @@
       <p>Nenhuma foto disponível.</p>
     <% end %>
   </div>
-
   <!-- Coluna com os detalhes do produto -->
   <div class="col-4 mt-5 ps-4 custom-margin-right"> <!-- Adicione margin-left -->
     <h7>ELETRÔNICO</h7>
@@ -48,7 +47,6 @@
 <br>
     <p class="mb-3">_______________________________________</p>
       <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
-
     <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
       <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
       <div class="form-actions">
@@ -57,7 +55,6 @@
         <br>
       </div>
     <% end %>
-
     <div class="reviews">
       <% @product.reviews.each do |review| %>
         <div class="review">
