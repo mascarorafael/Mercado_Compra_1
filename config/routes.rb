@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :show]
 
+  get "quemsomos", to: "pages#quemsomos"
+  get "desapegados", to: "pages#desapegados"
+  get "contact", to: "pages#contact"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
