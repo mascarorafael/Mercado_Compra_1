@@ -76,15 +76,38 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 60px; /* Ajuste o tamanho do logo conforme necessário */
-  margin-left: 300px;
+  margin-left: 160px;
 }
 
 .navbar-lewagon .dropdown-menu.login-dropdown {
-  background-color: #1A1C15; /* Fundo branco do dropdown */
+  background-color: #1A1C15; /* Cor de fundo do dropdown */
   color: #FBFFF5; /* Cor do texto do botão de registro */
-  border: 2px solid #E8EDDF; /* Borda preta do dropdown */
-  padding: 20px; /* Espaçamento interno do dropdown */
+  border: 1px solid #E8EDDF; /* Borda preta ao redor do dropdown */
+  border-radius: 5px; /* Leve arredondamento das bordas do dropdown */
+  padding: 16px; /* Espaçamento interno do dropdown */
   width: 200px; /* Largura do dropdown */
+}
+
+.navbar-lewagon .dropdown-menu.dropdown-menu-end {
+  background-color: #1A1C15; /* Cor de fundo do dropdown */
+  color: #FBFFF5; /* Cor do texto do dropdown */
+  border: 2px solid #E8EDDF; /* Borda ao redor do dropdown */
+  border-radius: 5px; /* Leve arredondamento das bordas do dropdown */
+  padding: 16px; /* Espaçamento interno do dropdown */
+  width: 200px; /* Largura do dropdown */
+}
+
+/* Garantindo que o texto dos itens do dropdown seja branco */
+.navbar-lewagon .dropdown-menu.dropdown-menu-end .dropdown-item {
+  color: #FBFFF5; /* Cor do texto dos itens do dropdown */
+  background-color: transparent; /* Fundo transparente para o item do dropdown */
+  border: none; /* Remove borda dos itens */
+}
+
+/* Remover efeito hover dos itens do dropdown */
+.navbar-lewagon .dropdown-menu.dropdown-menu-end .dropdown-item:hover {
+  color: #AAC86F; /* Manter cor do texto ao passar o mouse */
+  background-color: transparent; /* Fundo transparente ao passar o mouse */
 }
 
 .navbar-lewagon .dropdown-menu .form-inputs input {
