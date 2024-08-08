@@ -1,19 +1,21 @@
-<h2>Detalhes do Produto</h2>
-<div class="d-flex">
-  <div class="col-8">
+<div class="d-flex mt-5 ms-5 ps-5">
+<div class="d-flex flex-wrap">
+  <% if @product.photos.attached? %>
+    <% @product.photos.each_slice(2) do |photo_pair| %>
+      <div class="d-flex w-100 mb-4">
+        <% photo_pair.each do |photo| %>
+          <div class="flex-fill p-2" style="max-width: 50%;">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Nenhuma foto disponível.</p>
+  <% end %>
+</div>
 
-    <% if @product.photos.attached? %>
-      <% @product.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;" %>
-      <% end %>
-      <% else %>
-        <p>Nenhuma foto disponível.</p>
-      <% end %>
-    <br>
-
-  </div>
-
-  <div class="col-4">
+  <div class="col-4 mt-5 mb-1 ms-5 ps-5">
     <h7>ELETRÔNICO</h7>
     <h2><%= @product.name %></h2>
     <p><%= number_to_currency(@product.price) %></p>
@@ -23,22 +25,24 @@
 
     <% if user_signed_in? %>
       <% if @already_purchased %>
-        <%= button_tag "Comprar", class: "btn-comprar", disabled: true %>
+        <%= button_tag "Comprar", class: "vitor", disabled: true %>
       <% else %>
-        <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-primary" %>
+        <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-custom" %>
       <% end %>
-    <% else %>
+       <% else %>
       <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-primary" %>
     <% end %>
+  
 
+    <br>
     <br>
 
     <h5>Sua experiência</h5>
 
     <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
-      <%= form.input :comment, as: :text, rows: 5, label: "Descreva como foi sua negociação com o vendedor" %>
+      <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo caso você conheça ou use esse produto:" %>
       <div class="form-actions">
-        <%= form.button :submit, "Enviar Avaliação", class: "btn btn-primary" %>
+        <%= form.button :submit, "Enviar Avaliação", class: "btn btn-voltar" %>
       </div>
     <% end %>
 
@@ -51,11 +55,12 @@
       <% end %>
     </div>
     <br>
-
-    <%= link_to "Editar", edit_product_path(@product), class: "btn btn-secondary" %>
-    <%= link_to "Voltar", products_path, class: "btn btn-secondary" %>
+      <%= link_to "Editar", edit_product_path(@product), class: "btn-edit" %>
+    <br>
+    <br>
+    <%= link_to "Voltar", products_path, class: "btn-voltar" %>
     <%= link_to "Excluir", product_path(@product),
                 data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
-                class: "btn btn-danger" %>
+                class: "btn-voltar" %>
   </div>
 </div>
