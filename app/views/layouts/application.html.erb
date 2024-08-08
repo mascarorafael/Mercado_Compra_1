@@ -37,7 +37,7 @@
               <!-- Se o usuário estiver logado -->
               <li class="nav-item dropdown">
                 <%= link_to current_user.email, "#", class: "btn-email nav-link dropdown-toggle", id: "userDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                <div class="dropdown-menu dropdown-menu-end text-white" aria-labelledby="userDropdown">
                   <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja sair?" }, class: "dropdown-item" %>
                 </div>
               </li>
@@ -63,11 +63,11 @@
                   <% end %>
                 </div>
               </li>
-<li class="nav-item dropdown">
-  <%= link_to "#", class: "btn-register nav-link dropdown-toggle", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-    DES<strong>APEGUE-SE</strong>
-  <% end %>
-  <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
+    <li class="nav-item dropdown">
+      <%= link_to "#", class: "btn-register nav-link dropdown-toggle", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+      DES<strong>APEGUE-SE</strong>
+     <% end %>
+    <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
     <h2>Criar conta</h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
       <%= f.error_notification %>

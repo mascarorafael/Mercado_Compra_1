@@ -1,8 +1,29 @@
-<h2>index page</h2>
-
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
+<div class="container ms-5 ps-5 mb-5 mt-5">
+<% if user_signed_in? %>
+<br>
+  <%= link_to new_product_path, class: "btn-register ms-5" do %>
+    <strong>ANUNCIE O SEU PRODUTO</strong>
   <% end %>
-</ul>
-
+<% end %>
+<br>
+<h6 class="ms-5 mb-2 mt-5">AJUDE NO DESAPEGO</h6>
+<h2 class="ms-5 mb-2">Escolha o item que você está<br>precisando na sua casa:</h2>
+<br>
+<div class="row ms-4">
+    <% @products.each_slice(4) do |products_slice| %>
+      <% products_slice.each do |product| %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="product-card">
+            <% if product.photos.attached? %>
+              <%= image_tag rails_blob_path(product.photos.first, disposition: "attachment"), class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title mb-0"><%= product.name %></h5>
+              <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-custom" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
