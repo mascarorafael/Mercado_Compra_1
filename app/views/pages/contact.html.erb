@@ -1,33 +1,34 @@
-<h1>Novo Produto</h1>
+<div class="container my-5">
+  <h1>Fale Conosco</h1>
 
-<%= form_with(model: @product, local: true) do |form| %>
-  <div>
-    <%= form.label :name, "Nome do produto:" %>
-    <%= form.text_field :name %>
-  </div>
+  <%= form_with(model: @contact_form, local: true, class: "form-group") do |form| %>
+    <div class="mb-3">
+      <%= form.label :product_and_seller_name, "Nome do produto e do Vendedor:", class: "form-label" %>
+      <%= form.text_field :product_and_seller_name, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :price, "Preço" %>
-    <%= form.text_field :price %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :problem_description, "Descreve o seu problema:", class: "form-label" %>
+      <%= form.text_area :problem_description, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :reason, "Motivo da venda:" %>
-    <%= form.text_field :reason %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :seller_phone, "Telefone do Vendedor:", class: "form-label" %>
+      <%= form.text_field :seller_phone, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :status, "Estado do Produto:" %>
-    <%= form.text_field :status %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :seller_email, "E-mail do Vendedor:", class: "form-label" %>
+      <%= form.email_field :seller_email, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :withdrawal, "Retirada do Produto:" %>
-    <%= form.text_field :withdrawal %>
-  </div>
+    <div class="mb-3">
+      <%= form.label :seller_phone, "Seu telefone:", class: "form-label" %>
+      <%= form.text_field :seller_phone, class: "form-control" %>
+    </div>
 
-  <div>
-    <%= form.submit "Carregar Imagens" %>
-    <%= form.submit "Enviar Formulário" %>
-  </div>
-<% end %>
+    <div class="d-grid gap-2">
+      <%= form.submit "ENVIAR FORMULÁRIO", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
