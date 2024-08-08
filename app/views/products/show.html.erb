@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>Detalhes do Produto</h2>
 <div class="d-flex">
 <div class="d-flex flex-wrap">
@@ -10,12 +11,27 @@
           </div>
         <% end %>
       </div>
+=======
+<div class="d-flex mt-5 ms-5 ps-5">
+  <!-- Container para as fotos -->
+  <div class="d-flex flex-wrap flex-grow-1 me-1 mt-5">
+    <% if @product.photos.attached? %>
+      <% @product.photos.each_slice(2) do |photo_pair| %>
+        <div class="d-flex w-100 mb-4">
+          <% photo_pair.each do |photo| %>
+            <div class="p-2" style="width: calc(50% - 1rem);">
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Nenhuma foto disponível.</p>
+>>>>>>> master
     <% end %>
-  <% else %>
-    <p>Nenhuma foto disponível.</p>
-  <% end %>
-</div>
+  </div>
 
+<<<<<<< HEAD
   <div class="col-4">
     <h6>ELETRÔNICO</h6>
     <h2><%= @product.name %></h2>
@@ -23,27 +39,53 @@
 
     <p>Descrição:</p>
     <p><%= @product.description %></p>
+=======
+  <!-- Coluna com os detalhes do produto -->
+  <div class="col-4 mt-5 ps-4 custom-margin-right"> <!-- Adicione margin-left -->
+    <h7>ELETRÔNICO</h7>
+    <h2 class="mb-3"><%= @product.name %></h2>
+    <p><%= number_to_currency(@product.price) %></p>
+    <p class="mb-3">_______________________________________</p>
+    <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
+    <p class="mb-3"><%= @product.description %></p>
+    <p class="mb-3">_______________________________________</p>
+>>>>>>> master
 
     <% if user_signed_in? %>
       <% if @already_purchased %>
-        <%= button_tag "Comprar", class: "vitor", disabled: true %>
+        <%= button_tag "JÁ VENDIDO", class: "btn btn-custom", disabled: true %>
       <% else %>
-        <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-custom" %>
+      <div class="d-flex">
+        <%= link_to "COMPRAR AGORA", new_product_order_path(@product), class: "btn btn-comprar mt-3" %>
+      </div>
       <% end %>
-       <% else %>
-      <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-primary" %>
     <% end %>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
     <br>
+<div class="button-container">
+  <% if current_user == @product.user %>
+    <%= link_to "Editar", edit_product_path(@product), class: "btn-edit mb-2" %>
     <br>
-
-    <h5>Sua experiência</h5>
+    <%= link_to "Excluir", product_path(@product),
+                data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
+                class: "btn-voltar" %>
+  <% end %>
+  <%= link_to "Voltar", products_path, class: "btn-voltar" %>
+</div>
+<br>
+    <p class="mb-3">_______________________________________</p>
+      <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
 
     <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
-      <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo caso você conheça ou use esse produto:" %>
+      <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
       <div class="form-actions">
-        <%= form.button :submit, "Enviar Avaliação", class: "btn btn-voltar" %>
+        <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
+        <p class="mb-1 mt-3">_______________________________________</p>
+        <br>
       </div>
     <% end %>
 
@@ -55,13 +97,5 @@
         </div>
       <% end %>
     </div>
-    <br>
-      <%= link_to "Editar", edit_product_path(@product), class: "btn-edit" %>
-    <br>
-    <br>
-    <%= link_to "Voltar", products_path, class: "btn-voltar" %>
-    <%= link_to "Excluir", product_path(@product),
-                data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
-                class: "btn-voltar" %>
   </div>
 </div>
