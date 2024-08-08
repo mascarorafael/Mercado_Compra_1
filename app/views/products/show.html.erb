@@ -1,23 +1,26 @@
 <h2>Detalhes do Produto</h2>
 <div class="d-flex">
-  <div class="col-8">
-
-    <% if @product.photos.attached? %>
-      <% @product.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;" %>
-      <% end %>
-      <% else %>
-        <p>Nenhuma foto disponível.</p>
-      <% end %>
-    <br>
-
-  </div>
+<div class="d-flex flex-wrap">
+  <% if @product.photos.attached? %>
+    <% @product.photos.each_slice(2) do |photo_pair| %>
+      <div class="d-flex w-100 mb-4">
+        <% photo_pair.each do |photo| %>
+          <div class="flex-fill p-2" style="max-width: 50%;">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Nenhuma foto disponível.</p>
+  <% end %>
+</div>
 
   <div class="col-4">
     <h7>ELETRÔNICO</h7>
     <h2><%= @product.name %></h2>
     <p><%= number_to_currency(@product.price) %></p>
-    
+
     <p>Descrição:</p>
     <p><%= @product.description %></p>
 
