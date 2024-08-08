@@ -14,14 +14,16 @@
   </div>
 
   <div class="col-4">
-
-    <h5><%= @product.name %></h5>
-    <p>Preço: <%= number_to_currency(@product.price) %></p>
-    <p>Quantidade: <%= @product.quantity %></p>
+    <h7>ELETRÔNICO</h7>
+    <h2><%= @product.name %></h2>
+    <p><%= number_to_currency(@product.price) %></p>
+    
+    <p>Descrição:</p>
+    <p><%= @product.description %></p>
 
     <% if user_signed_in? %>
       <% if @already_purchased %>
-        <%= button_tag "Comprar", class: "btn btn-primary", disabled: true %>
+        <%= button_tag "Comprar", class: "btn-comprar", disabled: true %>
       <% else %>
         <%= link_to "Comprar", new_product_order_path(@product), class: "btn btn-primary" %>
       <% end %>
