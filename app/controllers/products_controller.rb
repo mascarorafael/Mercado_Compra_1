@@ -1,11 +1,14 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @products = Product.where(available: true)
   end
 
   def show
-    @product = Product.find(params[:id])
-    @already_purchased = current_user.orders.where(product_id: @product.id).exists?
+    @already_purchased = current_user.orders.where(product_id: @product.id).exists? if user_signed_in?
   end
 
   def new
@@ -17,20 +20,18 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      redirect_to product_path(@product) # Redireciona para a página de show do produto
+      redirect_to product_path(@product)
     else
       render :new
     end
   end
 
   def edit
-    @product = Product.find(params[:id])
+    # @product is set by before_action :set_product
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
-      Rails.logger.debug { "Fotos atualizadas: #{@product.photos.map(&:key).inspect}" }
       flash[:notice] = "#{@product.name} foi atualizado com sucesso."
       redirect_to @product
     else
@@ -40,13 +41,23 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = "O produto '#{@product.name}' foi excluído com sucesso."
     redirect_to products_path
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def authorize_user
+    unless current_user == @product.user
+      flash[:alert] = "Você não tem permissão para realizar essa ação."
+      redirect_to products_path
+    end
+  end
 
   def product_params
     params.require(:product).permit(:name, :price, :description, :quantity, photos: [])
