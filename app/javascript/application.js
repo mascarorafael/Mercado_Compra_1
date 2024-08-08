@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var carouselElement = document.querySelector('#product-carousel');
-  if (carouselElement) {
-    new bootstrap.Carousel(carouselElement, {
-      interval: 3000, // Intervalo de troca de slides em milissegundos
-      wrap: true
-    });
-  }
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   var carouselElement = document.querySelector('#product-carousel');
+//   if (carouselElement) {
+//     new bootstrap.Carousel(carouselElement, {
+//       interval: 3000, // Intervalo de troca de slides em milissegundos
+//       wrap: true
+//     });
+//   }
+// });
