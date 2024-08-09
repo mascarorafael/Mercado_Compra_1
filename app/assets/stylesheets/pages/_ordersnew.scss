@@ -1,0 +1,50 @@
+.btn-voltar-product {
+    background-color: #5C636A;
+    color: #FBFFF5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    width: 340px; /* Ajuste a largura desejada */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total *//* Garante que o botão não quebre para uma nova linha */
+  }
+
+.product-table {
+    width: 100%;
+    margin: 20px 0;
+    background-color: #FBFFF5;
+}
+
+.product-table table {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.product-table th, .product-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.product-table thead {
+    background-color: #E8E8D9; /* cor do fundo para o cabeçalho */
+}
+
+.product-table th {
+    font-weight: normal;
+    color: #6d6d6d;
+}
+
+.product-table td {
+    vertical-align: middle;
+}
+
+.product-table .product-image {
+    width: 60px;
+    height: auto;
+}
+
+.product-table td strong {
+    color: #000;
+    font-weight: bold;
+}
