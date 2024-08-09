@@ -1,83 +1,94 @@
-<div id="banner">
-  <div class="banner-content">
-    <div class="container ms-5 ps-5">
-      <h3 class="ms-4 ps-5">UMA NOVA ERA</h3>
-      <h1 class="ms-4 ps-5 text-white">A plataforma de desapego para chamar de sua</h1>
-      <%= image_tag "home/avaliacao.png", class: "ms-4 ps-5" %>
-    </div>
-    <%= image_tag "home/Casa.png", class: "banner-image" %>
-  </div>
-</div>
-<br><br>
-<div class="container-content">
-  <div class="container ms-5 ps-5">
-    <h6 class="ms-5 ps-5 mb-1">COMUNIDADE ENGAJADA</h6>
-    <h2 class="ms-5 ps-5 mb-1">Os desapegados da semana<br>procuraram por esses itens:</h2>
-    <br>
-    <div id="product-carousel" class="carousel slide w-100" data-ride="carousel">
-      <div class="carousel-inner ms-5 ps-5">
-        <% products_with_photos = @products.select { |product| product.photos.attached? } %>
+<div class="container">
+  <div class="justify-content-center text-align">
 
-        <% products_with_photos.each_slice(4).with_index do |products_slice, slice_index| %>
-          <div class="carousel-item <%= "active" if slice_index == 0 %>" >
-            <div class="d-flex flex-nowrap">
-              <% products_slice.each do |product| %>
-                <div class="product-card">
-                  <% if product.photos.attached? %>
-                    <%= image_tag rails_blob_path(product.photos.first, disposition: "attachment"), class: "card-img-top" %>
+    <div id="banner">
+      <div class="banner-content">
+
+          <div class="col-12 col-lg-6 mb-4">
+            <h6 class="">UMA NOVA ERA</h6>
+            <h1 class="text-white">A plataforma de desapego para chamar de sua</h1>
+            <%= image_tag "home/avaliacao.png", class: " " %>
+          </div>
+
+      </div>
+      <%= image_tag "home/Casa.png", class: "banner-image" %>
+    </div>
+
+    <div class="container-content pt-5">
+      <div class="container">
+        <h6 class=" mb-1">COMUNIDADE ENGAJADA</h6>
+        <h2 class=" mb-1">Os desapegados da semana procuraram por esses itens:</h2>
+        <br>
+        <div id="product-carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <% products_with_photos = @products.select { |product| product.photos.attached? } %>
+
+            <% products_with_photos.each_slice(4).with_index do |products_slice, slice_index| %>
+              <div class="carousel-item <%= "active" if slice_index == 0 %>">
+                <div class="d-flex flex-nowrap">
+                  <% products_slice.each do |product| %>
+                    <div class="product-card">
+                      <% if product.photos.attached? %>
+                        <%= image_tag rails_blob_path(product.photos.first, disposition: "attachment"), class: "card-img-top" %>
+                      <% end %>
+                      <div class="card-body">
+                        <h5 class="card-title mb-0"><%= product.name %></h5>
+                        <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-custom" %>
+                      </div>
+                    </div>
                   <% end %>
-                  <div class="card-body">
-                    <h5 class="card-title mb-0"><%= product.name %></h5>
-                    <%= link_to number_to_currency(product.price), product_path(product), class: "btn btn-custom" %>
-                  </div>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+    <div class="container pt-5 mb-1">
+
+      <div class="row align-itens-center">
+          <div class="col-12 col-lg-6">
+            <%= image_tag "home/Taxa de 1,5_.png", class: "mb-2 mt-5" %>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <h6 class="mb-2 mt-5">FEITO PENSANDO EM VOCÊ</h6>
+            <h2 class="mb-2">A única plataforma isenta de taxas</h2>
+            <p class="mb-1">Taxa destinada para manutenção da plataforma e pagamento de salário dos nossos colaboradores. Quer conhecer o nosso catálogo completo de produtos? Faça agora mesmo seu cadastro!</p>
+
+            <%= link_to "#", class: "btn-register nav-link", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+              DES<strong>APEGUE-SE</strong>
+            <% end %>
+          </div>
+
+      <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
+        <h2>Criar conta</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: "form-control" %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class: "form-control" %>
+            <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class: "form-control" %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Criar conta", class: "btn-submit" %>
           </div>
         <% end %>
 
-      <button class="carousel-control-prev ms-5 ps-5" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon ms-5 ps-5" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next me-5 pe-5" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon me-5 pe-5" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+        <%= render "devise/shared/links", resource_name: :user %>
+      </div>
+      </div>
+    </div>
 
     </div>
   </div>
-
-    <br><br>
-<div class="content-container-taxa">
-  <%= image_tag "home/Taxa de 1,5_.png", class: "ms-5 ps-5 mt-5" %>
-  <div class="text-right">
-    <h6 class="mb-2 mt-5">FEITO PENSANDO EM VOCÊ</h6>
-    <h2 class="mb-2">A única plataforma<br>isenta de taxas</h2>
-    <p class="mb-1">Taxa destinada para manutenção da plataforma e pagamento de salário dos nossos colaboradores. Quer conhecer o nosso catálogo completo de produtos? Faça agora mesmo seu cadastro!</p>
-    <br>
-  <%= link_to "#", class: "btn-register nav-link", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
-    DES<strong>APEGUE-SE</strong>
-  <% end %>
-  <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
-    <h2>Criar conta</h2>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: "form-control" %>
-        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class: "form-control" %>
-        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class: "form-control" %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Criar conta", class: "btn-submit" %>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links", resource_name: :user %>
-  </div>
-  </div>
-</div>
-      <br><br>
-  </div>
-    <div>
-  </div>
-</div>
