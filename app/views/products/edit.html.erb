@@ -13,7 +13,9 @@
             <%= f.input :photos, as: :file, label:"Envie suas imagens no botão abaixo:", input_html: { accept: "image/*", multiple: true, class: "backgroud-input" }, wrapper_html: {class: "border-2"} %>
 
         </div>
-
+        <button type="button" id="add-photo-field" class="btn-new-product">Adicionar Outra Foto</button>
+        <br>
+        <br>
         <div class="form-actions">
             <%= f.submit "Editar Produto", class: "btn-new-product" %>
         </div>
