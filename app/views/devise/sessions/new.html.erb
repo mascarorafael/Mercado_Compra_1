@@ -89,5 +89,48 @@
       </div>
       </div>
     </div>
+      <button class="carousel-control-prev ms-5 ps-5" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon ms-5 ps-5" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next me-5 pe-5" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon me-5 pe-5" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+
+    <br><br>
+<div class="content-container-taxa">
+  <%= image_tag "home/Taxa de 1,5_.png", class: "ms-5 ps-5 mt-5" %>
+  <div class="text-right">
+    <h6 class="mb-2 mt-5">FEITO PENSANDO EM VOCÊ</h6>
+    <h2 class="mb-2">A única plataforma<br>isenta de taxas</h2>
+    <p class="mb-1">Taxa destinada para manutenção da plataforma e pagamento de salário dos nossos colaboradores. Quer conhecer o nosso catálogo completo de produtos? Faça agora mesmo seu cadastro!</p>
+    <br>
+  <%= link_to "#", class: "btn-register nav-link", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
+    DES<strong>APEGUE-SE</strong>
+  <% end %>
+  <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
+    <h2>Criar conta</h2>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: "form-control" %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, class: "form-control" %>
+        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, class: "form-control" %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Criar conta", class: "btn-submit" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links", resource_name: :user %>
+  </div>
+  </div>
+</div>
+      <br><br>
+  </div>
+    <div>
   </div>
 </div>

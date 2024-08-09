@@ -1,28 +1,22 @@
-<div class="container">
-  <div class="row justify-content-center text-align">
+<div class="container pt-5">
+  <h2>Criar um Produto</h2>
+  <br>
+  <%= simple_form_for(@product, html: { multipart: true }) do |f| %>
+    <%= f.input :name, label:"Nome do Produto", input_html: { class: "border-green" }%>
+    <%= f.input :price, label:"Preço", input_html: { class: "border-green" } %>
+    <%= f.input :description, label:"Descrição", input_html: { class: "border-green" } %>
 
-    <div class="col-12 col-lg-6 pt-5">
-      <h2>Criação de Produto</h2>
+
+    <div id="photos-container">
+      <div class="photo-field">
+        <%= f.input :photos, as: :file, label:"Envie suas imagens no botão abaixo:", input_html: { accept: "image/*", multiple: true, class: "input-photo" }, wrapper_html: {class: "border-2"} %>
+      </div>
     </div>
 
-    <div class="col-12 pt-5">
-      <%= simple_form_for(@product, html: { multipart: true }) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :price %>
-        <%= f.input :description %>
+    <button type="button" id="add-photo-field" class="btn-new-product">Adicionar Outra Foto</button>
 
-
-        <div id="photos-container">
-          <div class="photo-field">
-            <%= f.input :photos, as: :file, input_html: { accept: "image/*", multiple: true } %>
-          </div>
-        </div>
-
-        <button type="button" id="add-photo-field">Adicionar Outra Foto</button>
-
-        <%= f.submit "Criar Produto" %>
-      <% end %>
-    </div>
-
-  </div>
+    <%= simple_form_for(@product) do |f| %>
+      <%= f.submit "Criar Produto", class: "btn-new-product" %>
+    <% end %>
+  <% end %>
 </div>
