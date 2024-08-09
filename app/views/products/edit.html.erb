@@ -1,16 +1,22 @@
-<h1>Editar produto</h1>
+<div class="container pt-5">
 
-<%= simple_form_for @product do |f| %>
-    <%= f.error_notification %>
+    <h2>Editar produto</h2>
+    <br>
 
-    <div class="form-inputs">
-        <%= f.input :name %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-    </div>
+    <%= simple_form_for @product do |f| %>
+        <%= f.error_notification %>
 
-    <div class="form-actions">
-        <%= f.submit %>
-    </div>
-    
-<% end %>
+        <div class="form-inputs">
+            <%= f.input :name, label:"Nome do Produto", input_html: { class: "backgroud-input" }%>
+            <%= f.input :price, label:"Preço", input_html: { class: "backgroud-input" }%>
+            <%= f.input :description, label:"Descrição", input_html: { class: "backgroud-input" } %>
+            <%= f.input :photos, as: :file, label:"Envie suas imagens no botão abaixo:", input_html: { accept: "image/*", multiple: true, class: "backgroud-input" }, wrapper_html: {class: "border-2"} %>
+
+        </div>
+
+        <div class="form-actions">
+            <%= f.submit "Editar Produto", class: "btn-new-product" %>
+        </div>
+        
+    <% end %>
+</div>
