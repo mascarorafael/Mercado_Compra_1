@@ -1,18 +1,28 @@
-<h2>Criação de Produto</h2>
+<div class="container">
+  <div class="row justify-content-center text-align">
 
-<%= simple_form_for(@product, html: { multipart: true }) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-
-
-  <div id="photos-container">
-    <div class="photo-field">
-      <%= f.input :photos, as: :file, input_html: { accept: "image/*", multiple: true } %>
+    <div class="col-12 col-lg-6 pt-5">
+      <h2>Criação de Produto</h2>
     </div>
+
+    <div class="col-12 pt-5">
+      <%= simple_form_for(@product, html: { multipart: true }) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+
+
+        <div id="photos-container">
+          <div class="photo-field">
+            <%= f.input :photos, as: :file, input_html: { accept: "image/*", multiple: true } %>
+          </div>
+        </div>
+
+        <button type="button" id="add-photo-field">Adicionar Outra Foto</button>
+
+        <%= f.submit "Criar Produto" %>
+      <% end %>
+    </div>
+
   </div>
-
-  <button type="button" id="add-photo-field">Adicionar Outra Foto</button>
-
-  <%= f.submit "Criar Produto" %>
-<% end %>
+</div>
