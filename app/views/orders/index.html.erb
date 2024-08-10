@@ -1,26 +1,24 @@
-<h1>Minha Lista de Pedidos</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Produto</th>
-      <th>Preço Total</th>
-      <th>Data do Pedido</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= order.product.name %></td>
-        <td><%= number_to_currency(order.total_price) %></td>
-        <td><%= order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td>
-          <%= link_to "Detalhes", order_path(order), class: "btn btn-info" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container mt-5">
+  <div class="product-table table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Produto</th>
+          <th>Preço Total</th>
+          <th>Data do Pedido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.product.name %></td>
+            <td><%= number_to_currency(order.total_price) %></td>
+            <td><%= order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

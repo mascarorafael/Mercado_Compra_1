@@ -5,7 +5,11 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @already_purchased = current_user.orders.where(product_id: @product.id).exists?
+    if current_user
+      @already_purchased = current_user.orders.where(product_id: @product.id).exists?
+    else
+      @already_purchased = false
+    end
   end
 
   def new

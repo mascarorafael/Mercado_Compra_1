@@ -52,6 +52,7 @@
         </div>
         <br>
         <hr class="my-4">
+      <% if user_signed_in? %>
           <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
         <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
           <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
@@ -60,6 +61,7 @@
             <hr class="my-4">
             <br>
           </div>
+      <% end %>
         <% end %>
 
         <div class="reviews">

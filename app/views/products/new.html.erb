@@ -1,18 +1,16 @@
 <div class="container pt-5">
   <br>
- <%= simple_form_for @product do |f| %>
-  <%= f.input :name, label: "Nome do Produto", input_html: { placeholder: "Digite claramente o nome do produto e sem caixa alta", class: "border-green", required: true } %>
-  <%= f.input :price, label: "Preço", input_html: { placeholder: "Digite o preço do produto, tenha em mente que o nosso sistema o arredondará", class: "border-green", required: true } %>
-  <%= f.input :description, label: "Descrição", input_html: { placeholder: "Digite uma breve descrição do produto e o motivo da venda", class: "border-green", required: true } %>
+  <%= simple_form_for @product do |f| %>
+    <%= f.input :name, label: "Nome do Produto", input_html: { placeholder: "Digite claramente o nome do produto e sem caixa alta", class: "border-green", required: true } %>
+    <%= f.input :price, label: "Preço", input_html: { placeholder: "Digite o preço do produto, tenha em mente que o nosso sistema o arredondará", class: "border-green", required: true } %>
+    <%= f.input :description, label: "Descrição", input_html: { placeholder: "Digite uma breve descrição do produto e o motivo da venda", class: "border-green", required: true } %>
     <br>
-    <div id="photos-container" class="mb-3 mt-3">
+    <div id="photos-container-view" class="mb-3 mt-3">
       <div class="photo-field mb-3">
         <%= f.input :photos, as: :file, label: "Envie suas imagens no botão abaixo", input_html: { accept: "image/*", multiple: true, class: "input-photo" }, wrapper_html: { class: "border-2", required: true } %>
       </div>
     </div>
-
-    <button type="button" id="add-photo-field" class="btn-new-product mb-3">Adicionar Outra Foto</button>
-
+    <button type="button" id="add-photo-field-view" class="btn-new-product mb-3">Adicionar Outra Foto</button>
     <%= f.submit "Criar Produto", class: "btn-new-product" %>
   <% end %>
 </div>
