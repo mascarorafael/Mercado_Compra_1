@@ -1,0 +1,20 @@
+.btn-invite-form {
+    background-color: #FBFFF5 !important;
+    color: black !important;
+    border: 1px solid #1A1C15 !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important; /* Ajuste do padding */
+    font-size: 15px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    width: 240px; /* Mantendo a largura */
+    display: inline-block; /* Garantir que o botão seja inline-block */
+    line-height: normal; /* Resetar line-height caso esteja interferindo */
+    vertical-align: middle; /* Centraliza verticalmente */
+  }
+
+  .btn-invite-form:hover {
+    background-color: #1A1C15 !important;
+    color: #AAC86F !important;
+  }
