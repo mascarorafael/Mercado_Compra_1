@@ -3,20 +3,22 @@
 
     <div class="d-flex mt-5">
       <!-- Container para as fotos -->
-      <div class="d-flex flex-wrap flex-grow-1 mt-5">
-        <% if @product.photos.attached? %>
-          <% @product.photos.each_slice(2) do |photo_pair| %>
-            <div class="d-flex w-100 mb-4">
-              <% photo_pair.each do |photo| %>
-                <div class="p-2" style="width: calc(50% - 1rem);">
-                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
-                </div>
-              <% end %>
-            </div>
+      <div class="col-12 col-lg-8">
+        <div class="d-flex mt-5">
+          <% if @product.photos.attached? %>
+            <% @product.photos.each_slice(2) do |photo_pair| %>
+              <div class="d-flex mb-4">
+                <% photo_pair.each do |photo| %>
+                  <div class="p-2">
+                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <p>Nenhuma foto disponível.</p>
           <% end %>
-        <% else %>
-          <p>Nenhuma foto disponível.</p>
-        <% end %>
+        </div>
       </div>
 
       <!-- Coluna com os detalhes do produto -->
