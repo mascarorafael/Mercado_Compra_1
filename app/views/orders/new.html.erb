@@ -8,7 +8,7 @@
     <%= form.hidden_field :total_price, value: @product.price %>
 
 
-  <div class="product-table">
+  <div class="product-table table-responsive">
     <table>
       <thead>
         <tr>
@@ -28,10 +28,9 @@
   </div>
 
     <div class="form-actions">
-      <%= form.button :submit, "Finalizar Compra", class: "btn btn-comprar mt-3" %>
+      <%= form.button :submit, "Finalizar Compra", class: "btn btn-comprar mt-3 mb-2" %>
     </div>
   <% end %>
-<br>
   <%= link_to "Voltar ao Produto", product_path(@product), class: "btn-voltar-product" %>
 
 </div>

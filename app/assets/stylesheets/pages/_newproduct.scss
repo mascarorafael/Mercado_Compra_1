@@ -87,3 +87,17 @@ label.error {
   height: 300px;
   object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
 }
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+/* Ajusta a largura da borda da tabela */
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}

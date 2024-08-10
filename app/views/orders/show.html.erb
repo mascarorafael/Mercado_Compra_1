@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="product-table">
+<div class="container" style="text-align: center;">
+  <div class="product-table table-responsive">
     <table>
       <thead>
         <tr>
@@ -25,11 +25,13 @@
       </tbody>
     </table>
   </div>
-<p class="mb-3">_________________________________________________________________________________________________________________________________</p>
+  <br>
+  <hr class="my-4">
+  <br>
   <h3 class="text-black mb-3"><strong>Obrigado pela sua compra!</strong></h3>
   <p>Todos os detalhes da retirada do produto foram encaminhados para o seu e-mail, lá você terá acesso ao telefone do vendedor no qual está cadastrado na plataforma para que facilite o encontro</p>
   <%= image_tag "obrigadocompra.png", class: "img-fluid mb-4" %>
   <br>
-  <%= link_to "Voltar à Lista de Pedidos", orders_path, class: "btn-voltar-product mb-3 mt-4" %>
-  <%= link_to "Voltar ao Produto", product_path(@order.product), class: "btn-voltar-product mt-4" %>
+  <%= link_to "Voltar à Lista de Pedidos", orders_path, class: "btn-voltar-product mb-2 mt-4" %><br>
+  <%= link_to "Voltar ao Produto", product_path(@order.product), class: "btn-voltar-product mb-1" %>
 </div>
