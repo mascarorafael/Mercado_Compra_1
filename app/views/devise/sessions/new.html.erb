@@ -1,16 +1,13 @@
-<div id="banner">
-  <div class="container d-flex">
-    <div class="banner-content">
-
-      <div class="col-12 col-lg-6 mb-4">
-        <h6 class="">UMA NOVA ERA</h6>
-        <h1 class="text-white">A plataforma de desapego para chamar de sua</h1>
-        <%= image_tag "home/avaliacao.png", class: " " %>
+<div id="banner" class="mb-2">
+<div class="container d-flex align-items-center justify-content-between">
+    <div class="content-container mt-3">
+      <h6>UMA NOVA ERA</h6>
+      <h1 class="text-white">A plataforma de desapego para chamar de sua</h1>
+      <%= image_tag "home/avaliacao.png", class: "img-fluid" %>
       </div>
-
+      <%= image_tag "home/Casa.png", class: "banner-image img-fluid" %>
     </div>
-    <%= image_tag "home/Casa.png", class: "banner-image" %>
-  </div>
+</div>
 </div>
 
 <div class="container">
@@ -60,7 +57,7 @@
 
       <div class="row align-itens-center">
           <div class="col-12 col-lg-6">
-            <%= image_tag "home/Taxa de 1,5_.png", class: "mb-2 mt-5" %>
+            <%= image_tag "home/Taxa de 1,5_.png", class: "taxa-image mb-2 mt-5" %>
           </div>
 
           <div class="col-12 col-lg-6">
@@ -71,8 +68,6 @@
             <%= link_to "#", class: "btn-register nav-link", id: "registerDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false do %>
               DES<strong>APEGUE-SE</strong>
             <% end %>
-          </div>
-
       <div class="dropdown-menu register-dropdown" aria-labelledby="registerDropdown">
         <h2>Criar conta</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "dropdown-form" }) do |f| %>
@@ -89,6 +84,7 @@
 
         <%= render "devise/shared/links", resource_name: :user %>
       </div>
+          </div>
       </div>
     </div>
 
