@@ -1,8 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
-  before_action :authenticate_user!, except: [:index]
-  before_action :authenticate_user!, except: [:some_other_action]
+  before_action :authenticate_user!, only: [:destroy] # Apenas requer autenticação para o logout
   before_action :set_products, only: [:new]
-  before_action :authenticate_user!, only: [:destroy]
 
   private
 

@@ -2,32 +2,28 @@
   background: #E8EDDF;
 }
 
-.navbar-lewagon .container {
-  display: flex;
-  justify-content: center; /* Centraliza o conteúdo do contêiner */
-  align-items: center; /* Alinha verticalmente o conteúdo no centro */
-  position: relative; /* Necessário para centralizar o conteúdo */
-}
+// .navbar-lewagon .container {
+//   display: flex;
+//   justify-content: center; /* Centraliza o conteúdo do contêiner */
+//   align-items: center; /* Alinha verticalmente o conteúdo no centro */
+//   position: relative; /* Necessário para centralizar o conteúdo */
+// }
 
 .navbar-lewagon .navbar-brand {
   margin-right: none; /* Espaço entre o logo e o menu */
 }
 
 .navbar-lewagon .navbar-collapse {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* Centraliza o menu */
-  flex-grow: 1; /* Permite que o menu use o espaço restante */
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center; /* Centraliza o menu */
+  flex-grow: 0; /* Permite que o menu use o espaço restante */
 }
 
 .navbar-lewagon .navbar-nav {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Alinha verticalmente os itens do menu */
-  margin-bottom: 0; /* Remove a margem inferior padrão dos itens da lista */
-  padding-left: 0; /* Remove o padding padrão da lista */
-  padding-right: 0; /* Remove o padding padrão da lista */
-  list-style: none; /* Remove os marcadores padrão */
+  align-items: center;
 }
 
 .navbar-lewagon .nav-item {
@@ -44,15 +40,13 @@
 }
 
 .navbar-lewagon .btn-enter {
-  // background-color: #1A1C15 !important;
-  // color: white !important;
-  border: 1px solid #1A1C15 !important;
-  border-radius: 5px !important;
-  padding: 7px 15px !important;
-  font-size: 15px !important;
-  cursor: pointer !important;
-  text-align: center !important;
-  text-decoration: none !important;
+  border: 1px solid #1A1C15;
+  border-radius: 5px;
+  padding: 7px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .navbar-lewagon .btn-enter:hover {
@@ -76,7 +70,6 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 60px; /* Ajuste o tamanho do logo conforme necessário */
-  margin-left: 160px;
 }
 
 .navbar-lewagon .dropdown-menu.login-dropdown {
@@ -153,4 +146,32 @@
   font-size: 15px; /* Tamanho da fonte do botão de cadastro */
   cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
   text-align: center; /* Alinha o texto ao centro */
+}
+
+@media (max-width: 768px) {
+  /* Alinha a navbar verticalmente */
+  .navbar-lewagon .navbar-nav {
+    flex-direction: column; /* Muda a orientação para coluna em telas pequenas */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    margin-bottom: 20px;
+  }
+
+  /* Ajusta o espaçamento entre itens na coluna */
+  .navbar-lewagon .nav-item {
+    margin-left: 0; /* Remove a margem à esquerda */
+    margin-top: 10px; /* Espaço entre itens na coluna */
+  }
+
+  /* Corrige a orientação para coluna em telas pequenas */
+  .navbar-lewagon .navbar-nav {
+    flex-direction: column; /* Garante que os itens fiquem em uma coluna */
+  }
+
+  /* Botão de registro ocupa a largura total */
+  .navbar-lewagon .btn-register {
+    display: block; /* Faz o botão se comportar como um bloco */
+    width: 100%; /* Faz com que o botão use toda a largura disponível */
+    margin-top: 10px; /* Espaço acima do botão */
+    position: relative; /* Ajusta a posição relativa */
+  }
 }
