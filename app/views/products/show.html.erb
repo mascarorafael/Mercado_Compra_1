@@ -1,67 +1,74 @@
-<div class="d-flex mt-5 ms-5 ps-5">
-  <!-- Container para as fotos -->
-  <div class="d-flex flex-wrap flex-grow-1 me-1 mt-5">
-    <% if @product.photos.attached? %>
-      <% @product.photos.each_slice(2) do |photo_pair| %>
-        <div class="d-flex w-100 mb-4">
-          <% photo_pair.each do |photo| %>
-            <div class="p-2" style="width: calc(50% - 1rem);">
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+<div class="container">
+  <div class="row justify-content-center text-align">
+
+    <div class="d-flex mt-5">
+      <!-- Container para as fotos -->
+      <div class="d-flex flex-wrap flex-grow-1 mt-5">
+        <% if @product.photos.attached? %>
+          <% @product.photos.each_slice(2) do |photo_pair| %>
+            <div class="d-flex w-100 mb-4">
+              <% photo_pair.each do |photo| %>
+                <div class="p-2" style="width: calc(50% - 1rem);">
+                  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>Nenhuma foto disponível.</p>
+        <% end %>
+      </div>
+
+      <!-- Coluna com os detalhes do produto -->
+      <div class="col-12 col-lg-4 mt-5"> <!-- Adicione margin-left -->
+        <h2 class="mb-3"><%= @product.name %></h2>
+        <p><%= number_to_currency(@product.price) %></p>
+        <p class="mb-3">_______________________________________</p>
+        <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
+        <p class="mb-3"><%= @product.description %></p>
+        <p class="mb-3">_______________________________________</p>
+
+        <% if user_signed_in? %>
+          <% if @already_purchased %>
+            <%= button_tag "JÁ VENDIDO", class: "btn btn-custom", disabled: true %>
+          <% else %>
+          <div class="d-flex">
+            <%= link_to "COMPRAR AGORA", new_product_order_path(@product), class: "btn btn-comprar mt-3" %>
+          </div>
+          <% end %>
+        <% end %>
+        <br>
+    <div class="button-container">
+      <% if current_user == @product.user %>
+        <%= link_to "Editar", edit_product_path(@product), class: "btn-edit mb-2" %>
+        <br>
+        <%= link_to "Excluir", product_path(@product),
+                    data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
+                    class: "btn-voltar" %>
+      <% end %>
+      <%= link_to "Voltar", products_path, class: "btn-voltar" %>
+    </div>
+    <br>
+        <p class="mb-3">_______________________________________</p>
+          <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
+        <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
+          <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
+          <div class="form-actions">
+            <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
+            <p class="mb-1 mt-3">_______________________________________</p>
+            <br>
+          </div>
+        <% end %>
+        <div class="reviews">
+          <% @product.reviews.each do |review| %>
+            <div class="review">
+              <strong><%= review.user.email %></strong>
+              <p><%= review.comment %></p>
             </div>
           <% end %>
         </div>
-      <% end %>
-    <% else %>
-      <p>Nenhuma foto disponível.</p>
-    <% end %>
-  </div>
-  <!-- Coluna com os detalhes do produto -->
-  <div class="col-4 mt-5 ps-4 custom-margin-right"> <!-- Adicione margin-left -->
-    <h6>ELETRÔNICO</h6>
-    <h2 class="mb-3"><%= @product.name %></h2>
-    <p><%= number_to_currency(@product.price) %></p>
-    <p class="mb-3">_______________________________________</p>
-    <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
-    <p class="mb-3"><%= @product.description %></p>
-    <p class="mb-3">_______________________________________</p>
-    <% if user_signed_in? %>
-      <% if @already_purchased %>
-        <%= button_tag "JÁ VENDIDO", class: "btn btn-custom", disabled: true %>
-      <% else %>
-      <div class="d-flex">
-        <%= link_to "COMPRAR AGORA", new_product_order_path(@product), class: "btn btn-comprar mt-3" %>
       </div>
-      <% end %>
-    <% end %>
-    <br>
-<div class="button-container">
-  <% if current_user == @product.user %>
-    <%= link_to "Editar", edit_product_path(@product), class: "btn-edit mb-2" %>
-    <br>
-    <%= link_to "Excluir", product_path(@product),
-                data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
-                class: "btn-voltar" %>
-  <% end %>
-  <%= link_to "Voltar", products_path, class: "btn-voltar" %>
-</div>
-<br>
-    <p class="mb-3">_______________________________________</p>
-      <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
-    <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
-      <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
-      <div class="form-actions">
-        <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
-        <p class="mb-1 mt-3">_______________________________________</p>
-        <br>
-      </div>
-    <% end %>
-    <div class="reviews">
-      <% @product.reviews.each do |review| %>
-        <div class="review">
-          <strong><%= review.user.email %></strong>
-          <p><%= review.comment %></p>
-        </div>
-      <% end %>
     </div>
+
   </div>
 </div>
