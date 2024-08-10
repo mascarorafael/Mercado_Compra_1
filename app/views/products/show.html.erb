@@ -23,10 +23,10 @@
       <div class="col-12 col-lg-4 mt-5"> <!-- Adicione margin-left -->
         <h2 class="mb-3"><%= @product.name %></h2>
         <p><%= number_to_currency(@product.price) %></p>
-        <p class="mb-3">_______________________________________</p>
+        <hr class="my-4">
         <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
         <p class="mb-3"><%= @product.description %></p>
-        <p class="mb-3">_______________________________________</p>
+        <hr class="my-4">
 
         <% if user_signed_in? %>
           <% if @already_purchased %>
@@ -49,13 +49,13 @@
       <%= link_to "Voltar", products_path, class: "btn-voltar" %>
     </div>
     <br>
-        <p class="mb-3">_______________________________________</p>
+        <hr class="my-4">
           <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
         <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
           <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
           <div class="form-actions">
             <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
-            <p class="mb-1 mt-3">_______________________________________</p>
+            <hr class="my-4">
             <br>
           </div>
         <% end %>
