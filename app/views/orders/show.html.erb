@@ -1,9 +1,35 @@
-<h1>Detalhes do Pedido</h1>
-
-<p><strong>ID do Pedido:</strong> <%= @order.id %></p>
-<p><strong>Produto:</strong> <%= @order.product.name %></p>
-<p><strong>Preço Total:</strong> <%= number_to_currency(@order.total_price) %></p>
-<p><strong>Data do Pedido:</strong> <%= @order.created_at.strftime("%d/%m/%Y %H:%M") %></p>
-
-<%= link_to "Voltar à Lista de Pedidos", orders_path, class: "btn btn-secondary" %>
-<%= link_to "Voltar ao Produto", product_path(@order.product), class: "btn btn-secondary" %>
+<div class="container">
+  <div class="product-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Nome do Produto</th>
+          <th>ID do Produto</th>
+          <th>Data e Hora da Compra</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% if @product %>
+            <td><%= image_tag rails_blob_path(@product.photos.first, disposition: "attachment"), class: "resized-image" %></td>
+            <td><%= @product.name %></td>
+            <td><%= @product.id %></td>
+            <td><%= @order.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+            <td><%= number_to_currency(@product.price) %></td>
+          <% else %>
+            <td colspan="5">Produto não encontrado</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<p class="mb-3">_________________________________________________________________________________________________________________________________</p>
+  <h3 class="text-black mb-3"><strong>Obrigado pela sua compra!</strong></h3>
+  <p>Todos os detalhes da retirada do produto foram encaminhados para o seu e-mail, lá você terá acesso ao telefone do vendedor no qual está cadastrado na plataforma para que facilite o encontro</p>
+  <%= image_tag "obrigadocompra.png", class: "img-fluid mb-4" %>
+  <br>
+  <%= link_to "Voltar à Lista de Pedidos", orders_path, class: "btn-voltar-product mb-3 mt-4" %>
+  <%= link_to "Voltar ao Produto", product_path(@order.product), class: "btn-voltar-product mt-4" %>
+</div>

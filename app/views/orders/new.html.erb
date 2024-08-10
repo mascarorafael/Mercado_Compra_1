@@ -1,7 +1,7 @@
 <div class="container">
 <br>
 
-  
+
 
   <%= simple_form_for @order, url: product_orders_path(@product), method: :post do |form| %>
     <%= form.hidden_field :product_id, value: @product.id %>
@@ -12,15 +12,14 @@
     <table>
       <thead>
         <tr>
-          <th>Lista de Produtos</th>
-          <th>Descrição</th>
+          <th>Produto</th>
+          <th>Nome do Produto</th>
           <th>Valor</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td></td>
-          
+          <td><%= image_tag rails_blob_path(@product.photos.first, disposition: "attachment"), class: "resized-image" %></td>
           <td><%= @product.name %></td>
           <td><%= number_to_currency(@product.price) %></td>
         </tr>

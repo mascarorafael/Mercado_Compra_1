@@ -17,7 +17,11 @@
   text-align: center !important;
   text-decoration: none !important;
   width: 240px;
+}
 
+.btn-new-product:hover {
+  background-color: #1A1C15 !important;
+  color: #AAC86F !important;
 }
 
 .border-green {
@@ -37,4 +41,49 @@
 
 .backgroud-input{
   background-color: #E8EDDF;
+}
+
+.field_with_errors {
+  border: 1px solid red;
+}
+
+input.field_with_errors {
+  border-color: red;
+}
+
+textarea.field_with_errors {
+  border-color: red;
+}
+
+input.invalid {
+  border-color: red;
+}
+
+textarea.invalid {
+  border-color: red;
+}
+
+/* Estilo para campos com erros após o envio do formulário */
+.error {
+  border: 1px solid red;
+  background-color: #fdd; /* Opcional: cor de fundo leve para destacar o campo */
+}
+
+input.error {
+  border-color: red;
+}
+
+textarea.error {
+  border-color: red;
+}
+
+/* Se você quiser aplicar estilos aos labels também */
+label.error {
+  color: red;
+}
+
+.resized-image {
+  width: 400px;
+  height: 300px;
+  object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
 }

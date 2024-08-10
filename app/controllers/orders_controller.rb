@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_order, only: [:show]
 
   def index
     @orders = current_user.orders.joins(:product).where(products: { available: false }).distinct
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @product = @order.product
     @order = Order.find(params[:id])
   end
 
@@ -33,5 +35,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:product_id, :total_price)
+  end
+
+  def set_order
+    @order = Order.find(params[:id])
   end
 end
