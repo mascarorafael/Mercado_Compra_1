@@ -7,9 +7,8 @@ import "bootstrap"
 console.log('JavaScript carregado'); // Verifica se o JavaScript está sendo executado
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  const addPhotoFieldButton = document.getElementById('add-photo-field');
-  const photosContainer = document.getElementById('photos-container');
+  const addPhotoFieldButton = document.getElementById('add-photo-field-view');
+  const photosContainer = document.getElementById('photos-container-view');
 
   if (addPhotoFieldButton && photosContainer) {
     addPhotoFieldButton.addEventListener('click', () => {
@@ -46,19 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const addPhotoFieldButton = document.getElementById('add-photo-field');
-  const photosContainer = document.querySelector('.form-inputs');
+window.addEventListener('load', () => {
+  const addPhotoFieldButtonEdit = document.getElementById('add-photo-field-edit');
+  const photosContainerEdit = document.getElementById('photos-container-edit');
 
-  addPhotoFieldButton.addEventListener('click', () => {
-    // Cria um novo campo de entrada para fotos
-    const newField = document.createElement('div');
-    newField.classList.add('photo-field');
-    newField.innerHTML = `
-      <input type="file" name="product[photos][]" accept="image/*" class="backgroud-input" />
-    `;
+  if (addPhotoFieldButtonEdit && photosContainerEdit) {
+    addPhotoFieldButtonEdit.addEventListener('click', () => {
+      const newField = document.createElement('div');
+      newField.classList.add('photo-field');
+      newField.innerHTML = `
+        <input type="file" name="product[photos][]" accept="image/*" class="backgroud-input" />
+      `;
 
-    // Insere o novo campo acima do botão
-    photosContainer.insertBefore(newField, addPhotoFieldButton);
-  });
+      if (photosContainerEdit.contains(addPhotoFieldButtonEdit)) {
+        photosContainerEdit.insertBefore(newField, addPhotoFieldButtonEdit);
+      } else {
+        photosContainerEdit.appendChild(newField);
+      }
+    });
+  }
 });
