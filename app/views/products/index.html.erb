@@ -1,16 +1,21 @@
 <div class="container mb-5 mt-5">
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
 
-  <%= link_to new_product_path, class: "btn-register" do %>
-    <strong>ANUNCIE O SEU PRODUTO</strong>
+    <%= link_to new_product_path, class: "btn-register" do %>
+      <strong>ANUNCIE O SEU PRODUTO</strong>
+    <% end %>
+
+    <%= link_to orders_path, class: "btn-indexproduct ms-2" do %>
+      <strong>SUA LISTA DE COMPRAS</strong>
+    <% end %>
+
   <% end %>
-<% end %>
 
-<h6 class="mt-5">AJUDE NO DESAPEGO</h6>
-<h2 class="mb-5">Escolha o item que você está precisando na sua casa:</h2>
+  <h6 class="mt-5">AJUDE NO DESAPEGO</h6>
+  <h2 class="mb-5">Escolha o item que você está precisando na sua casa:</h2>
 
-<div class="row">
+  <div class="row">
     <% @products.each_slice(4) do |products_slice| %>
       <% products_slice.each do |product| %>
         <div class="col-12 col-sm-6 col-md-4 p-2">
