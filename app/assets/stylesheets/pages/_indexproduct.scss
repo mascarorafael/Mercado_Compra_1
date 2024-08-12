@@ -1,4 +1,5 @@
 .btn-indexproduct {
+  // background-color: #1A1C15 !important;
   color: black !important;
   border: 1px solid #1A1C15 !important;
   border-radius: 5px !important;
@@ -7,11 +8,13 @@
   cursor: pointer !important;
   text-align: center !important;
   text-decoration: none !important;
-  display: inline-block; /* Adiciona para tornar o botão inline */
-  max-width: 100%; /* Garante que o botão não ultrapasse a largura da tela */
-  margin-bottom: 10px;
+  width: 340px;
 }
 
+.btn-indexproduct:hover {
+  background-color: #1A1C15 !important;
+  color: #8ab348 !important;
+}
 
 .btn-indexproduct:hover {
   background-color: #1A1C15 !important;
@@ -19,13 +22,8 @@
 }
 
 @media (max-width: 576px) {
-  .btn-register,
-  .btn-indexproduct {
-    width: 100%; /* Faz com que os botões ocupem a largura total disponível */
-    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos na largura total */
-  }
-
   .btn-indexproduct {
     margin-bottom: 0; /* Remove a margem inferior para evitar espaço extra entre os botões em dispositivos móveis */
+    margin-top: 10px;
   }
 }
