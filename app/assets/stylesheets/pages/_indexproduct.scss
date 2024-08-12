@@ -9,6 +9,7 @@
   text-decoration: none !important;
   display: inline-block; /* Adiciona para tornar o botão inline */
   max-width: 100%; /* Garante que o botão não ultrapasse a largura da tela */
+  margin-bottom: 10px;
 }
 
 
@@ -18,10 +19,13 @@
 }
 
 @media (max-width: 576px) {
+  .btn-register,
   .btn-indexproduct {
-    font-size: 14px !important;
-    padding: 5px 10px !important;
-    width: 100%; /* Faz com que o botão ocupe toda a largura em telas pequenas */
-    box-sizing: border-box; /* Garante que o padding não afete a largura do botão */
+    width: 100%; /* Faz com que os botões ocupem a largura total disponível */
+    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos na largura total */
+  }
+
+  .btn-indexproduct {
+    margin-bottom: 0; /* Remove a margem inferior para evitar espaço extra entre os botões em dispositivos móveis */
   }
 }
