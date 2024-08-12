@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row justify-content-center text-align">
 
-    <div class="d-flex mt-5">
+    <div class="d-flex mt-5 responsive-d-flex">
       <!-- Container para as fotos -->
-      <div class="col-12 col-lg-8">
+      <div class="col-12 col-lg-8 responsive-col">
         <div class="mt-5 px-4">
           <% if @product.photos.attached? %>
             <% @product.photos.each_slice(2) do |photo_pair| %>
-              <div class="d-flex mb-4">
+              <div class="d-flex mb-4 responsive-d-flex-mb">
                 <% photo_pair.each do |photo| %>
                   <div class="p-2">
-                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid" %>
+                    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, style: "object-fit: cover;", class: "img-fluid responsive-img-fluid" %>
                   </div>
                 <% end %>
               </div>
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Coluna com os detalhes do produto -->
-      <div class="col-12 col-lg-4 mt-5"> <!-- Adicione margin-left -->
+      <div class="col-12 col-lg-4 responsive-col mt-5"> <!-- Adicione margin-left -->
         <h2 class="mb-3"><%= @product.name %></h2>
         <p><%= number_to_currency(@product.price) %></p>
         <hr class="my-4">
@@ -34,9 +34,9 @@
           <% if @already_purchased %>
             <%= button_tag "JÁ VENDIDO", class: "btn btn-custom", disabled: true %>
           <% else %>
-          <div class="d-flex">
-            <%= link_to "COMPRAR AGORA", new_product_order_path(@product), class: "btn btn-comprar mt-3" %>
-          </div>
+            <div class="d-flex">
+              <%= link_to "COMPRAR AGORA", new_product_order_path(@product), class: "btn btn-comprar mt-3" %>
+            </div>
           <% end %>
         <% end %>
         <br>
@@ -52,16 +52,16 @@
         </div>
         <br>
         <hr class="my-4">
-      <% if user_signed_in? %>
+        <% if user_signed_in? %>
           <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
-        <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
-          <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 100%;" } %>
-          <div class="form-actions">
-            <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
-            <hr class="my-4">
-            <br>
-          </div>
-      <% end %>
+          <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
+            <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 100%;" } %>
+            <div class="form-actions">
+              <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
+              <hr class="my-4">
+              <br>
+            </div>
+          <% end %>
         <% end %>
 
         <div class="reviews">
