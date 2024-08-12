@@ -79,7 +79,7 @@ h1, h2 {
   border: 8px solid #E8EDDF;
   background-color: #AAC86F;
   width: 100%; /* Ajusta conforme necessário */
-  max-width: 364px; /* Ajusta a largura máxima dos cards */
+  max-width: 364px;
   flex: 1 0 auto; /* Permite que o card cresça conforme necessário */
   border-radius: 10px; /* Border radius para o card */
   overflow: hidden; /* Garante que o conteúdo não ultrapasse o card */
@@ -130,6 +130,10 @@ h1, h2 {
   display: inline-block;
   text-decoration: none;
   white-space: nowrap; /* Garante que o botão não quebre para uma nova linha */
+}
+
+.btn-custom:disabled {
+  width: 100%;
 }
 
 .carousel-control-prev,

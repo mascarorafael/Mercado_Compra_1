@@ -2,11 +2,11 @@
   <% if user_signed_in? %>
 
 
-    <%= link_to new_product_path, class: "btn-register" do %>
+    <%= link_to new_product_path, class: "btn-anuncie mb-3" do %>
       <strong>ANUNCIE O SEU PRODUTO</strong>
     <% end %>
 
-    <%= link_to orders_path, class: "btn-indexproduct ms-2" do %>
+    <%= link_to orders_path, class: "btn-indexproduct" do %>
       <strong>MINHA LISTA DE COMPRAS</strong>
     <% end %>
 
@@ -19,7 +19,7 @@
     <% @products.each_slice(4) do |products_slice| %>
       <% products_slice.each do |product| %>
         <div class="col-12 col-sm-6 col-md-4 p-2">
-          <div class="product-card">
+          <div class="product-card-show">
             <% if product.photos.attached? %>
               <%= image_tag rails_blob_path(product.photos.first, disposition: "attachment"), class: "card-img-top" %>
             <% end %>

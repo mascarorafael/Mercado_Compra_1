@@ -1,20 +1,32 @@
-.btn-invite-form {
-    background-color: #FBFFF5 !important;
-    color: black !important;
-    border: 1px solid #1A1C15 !important;
-    border-radius: 5px !important;
-    padding: 10px 20px !important; /* Ajuste do padding */
-    font-size: 15px !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    width: 240px; /* Mantendo a largura */
-    display: inline-block; /* Garantir que o botão seja inline-block */
-    line-height: normal; /* Resetar line-height caso esteja interferindo */
-    vertical-align: middle; /* Centraliza verticalmente */
-  }
+/* Justifica o texto */
+.text-justify {
+  text-align: justify;
+}
 
-  .btn-invite-form:hover {
-    background-color: #1A1C15 !important;
-    color: #AAC86F !important;
-  }
+/* Ajusta o iframe para se adaptar à tela */
+iframe {
+  max-width: 100%; /* Faz com que o iframe não ultrapasse a largura do seu contêiner */
+  height: 900px; /* Ajusta a altura proporcionalmente à largura */
+}
+
+/* Adiciona espaçamento ao botão */
+.btn-invite-form {
+  background-color: #FBFFF5 !important;
+  color: black !important;
+  border: 1px solid #1A1C15 !important;
+  border-radius: 5px !important;
+  padding: 10px 20px !important; /* Ajuste do padding */
+  font-size: 15px !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  width: 240px; /* Mantendo a largura */
+  display: inline-block; /* Garantir que o botão seja inline-block */
+  line-height: normal; /* Resetar line-height caso esteja interferindo */
+  vertical-align: middle; /* Centraliza verticalmente */
+}
+
+.btn-invite-form:hover {
+  background-color: #1A1C15 !important;
+  color: #AAC86F !important;
+}

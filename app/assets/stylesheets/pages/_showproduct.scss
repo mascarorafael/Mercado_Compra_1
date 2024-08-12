@@ -1,5 +1,5 @@
-.btn-edit {
-  // background-color: #1A1C15 !important;
+/* Botões */
+.btn-edit, .btn-voltar {
   color: black !important;
   border: 1px solid #1A1C15 !important;
   border-radius: 5px !important;
@@ -8,35 +8,18 @@
   cursor: pointer !important;
   text-align: center !important;
   text-decoration: none !important;
-  width: 340px;
+  display: block; /* Faz com que os botões se comportem como blocos em dispositivos móveis */
+  width: 100%; /* Faz com que os botões ocupem a largura total disponível */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+  margin: 10px auto; /* Centraliza os botões e adiciona espaçamento */
 }
 
-.btn-edit:hover {
+.btn-edit:hover, .btn-voltar:hover {
   background-color: #1A1C15 !important;
   color: #8ab348 !important;
 }
 
-.btn-voltar {
-  // background-color: #1A1C15 !important;
-  color: black !important;
-  border: 1px solid #1A1C15 !important;
-  border-radius: 5px !important;
-  padding: 7px 15px !important;
-  font-size: 15px !important;
-  cursor: pointer !important;
-  text-align: center !important;
-  text-decoration: none !important;
-}
-
-.btn-voltar:hover {
-  background-color: #1A1C15 !important;
-  color: #8ab348 !important;
-}
-
-.custom-margin-right {
-  margin-right: 80px; /* Ajuste o valor conforme necessário */
-}
-
+/* Botão de comprar */
 .btn-comprar {
   background-color: #AAC86F;
   color: #1A1C15;
@@ -45,7 +28,7 @@
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  width: 340px; /* Ajuste a largura desejada */
+  width: 100%; /* Ajuste a largura desejada */
   box-sizing: border-box; /* Inclui o padding e a borda na largura total */
 }
 
@@ -57,16 +40,33 @@
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  width: 340px; /* Ajuste a largura desejada */
   box-sizing: border-box; /* Inclui o padding e a borda na largura total */
 }
 
+/* Container de botões */
 .button-container {
   text-align: center;
-  margin-right: 100%;
+  margin: 20px 0; /* Adiciona espaçamento superior e inferior */
 }
 
-.button-container a {
-  display: inline-block; /* Garante que os botões se comportem como elementos em linha */
-  margin: 1px; /* Adiciona um espaçamento entre os botões, se necessário */
+/* Responsividade */
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column; /* Alinha os elementos verticalmente */
+  }
+
+  .col-lg-8, .col-lg-4 {
+    width: 100%; /* Faz com que as colunas ocupem a largura total disponível */
+    margin-bottom: 20px; /* Adiciona espaçamento inferior */
+  }
+
+  .img-fluid {
+    width: 100%; /* Faz com que as imagens ocupem a largura total disponível */
+    height: auto; /* Ajusta a altura automaticamente */
+    object-fit: cover;
+  }
+
+  .d-flex.mb-4 {
+    flex-direction: column; /* Empilha as fotos verticalmente em dispositivos móveis */
+  }
 }

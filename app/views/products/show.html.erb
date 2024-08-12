@@ -27,7 +27,7 @@
         <p><%= number_to_currency(@product.price) %></p>
         <hr class="my-4">
         <h6 class="mb-2 text-black"><strong>Motivo da Venda</strong></h6>
-        <p class="mb-3"><%= @product.description %></p>
+        <p class="mb-3" style="text-align: justify;"><%= @product.description %></p>
         <hr class="my-4">
 
         <% if user_signed_in? %>
@@ -55,7 +55,7 @@
       <% if user_signed_in? %>
           <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
         <%= simple_form_for([:create, Review.new], url: product_reviews_path(@product)) do |form| %>
-          <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 340px; max-width: 500px;" } %>
+          <%= form.input :comment, as: :text, rows: 5, label: "Deixe um feedback abaixo sobre o produto:", input_html: { style: "width: 100%;" } %>
           <div class="form-actions">
             <%= form.button :submit, "Enviar Avaliação", class: "btn btn-edit" %>
             <hr class="my-4">
