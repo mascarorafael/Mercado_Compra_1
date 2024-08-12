@@ -43,14 +43,12 @@
         <div class="button-container">
           <% if current_user == @product.user %>
             <%= link_to "Editar", edit_product_path(@product), class: "btn-edit mb-2" %>
-            <br>
             <%= link_to "Excluir", product_path(@product),
                         data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este produto?" },
                         class: "btn-voltar" %>
           <% end %>
           <%= link_to "Voltar", products_path, class: "btn-voltar" %>
         </div>
-        <br>
         <hr class="my-4">
         <% if user_signed_in? %>
           <h6 class="mb-2 mt-3 text-black"><strong>Sua Experiência</strong></h6>
