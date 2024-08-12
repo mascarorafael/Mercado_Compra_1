@@ -1,5 +1,4 @@
 .btn-indexproduct {
-  // background-color: #1A1C15 !important;
   color: black !important;
   border: 1px solid #1A1C15 !important;
   border-radius: 5px !important;
@@ -8,10 +7,21 @@
   cursor: pointer !important;
   text-align: center !important;
   text-decoration: none !important;
-  width: 340px;
+  display: inline-block; /* Adiciona para tornar o botão inline */
+  max-width: 100%; /* Garante que o botão não ultrapasse a largura da tela */
 }
+
 
 .btn-indexproduct:hover {
   background-color: #1A1C15 !important;
   color: #8ab348 !important;
+}
+
+@media (max-width: 576px) {
+  .btn-indexproduct {
+    font-size: 14px !important;
+    padding: 5px 10px !important;
+    width: 100%; /* Faz com que o botão ocupe toda a largura em telas pequenas */
+    box-sizing: border-box; /* Garante que o padding não afete a largura do botão */
+  }
 }
