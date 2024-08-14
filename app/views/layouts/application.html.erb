@@ -35,7 +35,6 @@
             </li>
 
             <% if user_signed_in? %>
-              <!-- Se o usuário estiver logado -->
               <li class="nav-item dropdown">
                 <%= link_to current_user.email, "#", class: "btn-email nav-link dropdown-toggle", id: "userDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end text-white" aria-labelledby="userDropdown">
@@ -43,7 +42,6 @@
                 </div>
               </li>
             <% else %>
-              <!-- Se o usuário não estiver logado -->
               <li class="nav-item dropdown">
                 <%= link_to "ENTRAR", "#", class: "btn-enter nav-link dropdown-toggle", id: "loginDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu login-dropdown" aria-labelledby="loginDropdown">

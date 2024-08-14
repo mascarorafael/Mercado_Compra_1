@@ -4,7 +4,7 @@ body {
 
 #banner {
   background-color: #1A1C15;
-  min-height: 359px; /* Ajuste conforme necessário */
+  min-height: 359px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,18 +13,11 @@ body {
   box-sizing: border-box;
 }
 
-// .banner-content {
-//   display: flex;
-//   align-items: center;
-//   width: 100%;
-//   justify-content: space-between;
-// }
-
 .container-content {
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: center; /* Ajustado para centralizar o conteúdo */
+  justify-content: center;
 }
 
 h3 {
@@ -34,7 +27,7 @@ h3 {
 }
 
 h6 {
-  color: #AAC86F; /* Cor para h6, se necessário */
+  color: #AAC86F;
   margin: 0;
 }
 
@@ -48,7 +41,6 @@ h1, h2 {
 }
 
 .banner-image {
-  // width: 545px;
   max-width: 53%;
   height: auto;
   object-fit: cover;
@@ -59,54 +51,46 @@ h1, h2 {
 }
 
 .carousel-inner {
-  // display: flex;
   overflow: hidden;
 }
 
-// .carousel-item {
-//   display: flex;
-//   flex-direction: row;
-// }
-
 .carousel-item > .d-flex {
-  // display: flex;
-  // flex-wrap: nowrap; /* Mantém os itens em uma linha única */
   width: 100%;
-  gap: 15px; /* Espaçamento entre os cards */
+  gap: 15px;
 }
 
 .product-card {
   border: 8px solid #E8EDDF;
   background-color: #AAC86F;
-  width: 100%; /* Ajusta conforme necessário */
+  width: 100%;
   max-width: 364px;
-  flex: 1 0 auto; /* Permite que o card cresça conforme necessário */
-  border-radius: 10px; /* Border radius para o card */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse o card */
-  position: relative; /* Permite o posicionamento absoluto do card-body */
+  flex: 1 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
 .product-card img {
-  height: 364px; /* Altura da imagem */
-  width: 100%; /* Ajusta a largura da imagem para o card */
-  object-fit: cover; /* Ajusta a imagem para cobrir o card sem distorcer */
+  height: 364px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card-body {
   background-color: #E8EDDF;
   padding: 10px;
-  position: absolute; /* Posiciona o corpo do card na parte inferior do card */
+  position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%; /* Garante que o corpo do card ocupe toda a largura do card */
-  z-index: 1; /* Garante que o card-body fique sobre a imagem */
+  width: 100%;
+  z-index: 1;
   display: flex;
-  align-items: center; /* Alinha verticalmente o conteúdo dentro do card-body */
-  justify-content: space-between; /* Coloca espaço entre o título e o botão */
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-title {
-  margin: 0; /* Remove a margem do título */
+  margin: 0;
   color: #1A1C15;
 }
 
@@ -118,7 +102,7 @@ h1, h2 {
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  white-space: nowrap; /* Garante que o botão não quebre para uma nova linha */
+  white-space: nowrap;
 }
 
 .btn-custom:hover {
@@ -129,7 +113,7 @@ h1, h2 {
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  white-space: nowrap; /* Garante que o botão não quebre para uma nova linha */
+  white-space: nowrap;
 }
 
 .btn-custom:disabled {
@@ -139,78 +123,78 @@ h1, h2 {
 .carousel-control-prev,
 .carousel-control-next {
   width: 8%;
-  color: #1A1C15; /* Cor do ícone */
+  color: #1A1C15;
 }
 
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
-  background-color: #1A1C15; /* Cor de fundo dos ícones ao passar o mouse */
+  background-color: #1A1C15;
   border-radius: 40%;
 }
 
 .home .btn-register {
-  background-color: #AAC86F; /* Cor de fundo do botão de registro */
-  color: #1A1C15; /* Cor do texto do botão de registro */
-  border-radius: 5px; /* Leve arredondamento das bordas */
-  padding: 8px 16px; /* Espaçamento interno do botão */
-  font-size: 15px; /* Tamanho da fonte */
-  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
-  text-align: center; /* Alinha o texto no centro */
-  text-decoration: none; /* Remove o sublinhado do texto */
+  background-color: #AAC86F;
+  color: #1A1C15;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .home .btn-register:hover {
-  background-color: #8ab348; /* Cor de fundo do botão de registro ao passar o mouse */
+  background-color: #8ab348;
 }
 
 .content-container-taxa {
-  display: flex; /* Usa flexbox para posicionar os itens lado a lado */
-  align-items: flex-start; /* Alinha os itens no início do contêiner (opcional, ajustável) */
-  gap: 20px; /* Espaçamento entre a imagem e a div (ajuste conforme necessário) */
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .text-right {
-  flex: 1; /* Faz a div ocupar o espaço restante disponível */
-  text-align: justify; /* Justifica o texto dentro da div */
+  flex: 1;
+  text-align: justify;
 }
 
 .text-right h6, .text-right h2, .text-right p {
-  margin-left: 0; /* Remove a margem esquerda */
-  margin-right: 0; /* Remove a margem direita */
-  padding: 0; /* Remove o padding */
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 
 .text-right h6 {
-  margin-top: 0; /* Ajusta a margem superior, se necessário */
+  margin-top: 0;
 }
 
 .text-right h2 {
-  margin-top: 10px; /* Ajusta a margem superior, se necessário */
+  margin-top: 10px;
 }
 
 .text-right p {
-  margin-top: 10px; /* Ajusta a margem superior, se necessário */
+  margin-top: 10px;
 }
 
 .btn-register {
-  background-color: #AAC86F; /* Cor de fundo do botão de registro */
-  color: #1A1C15; /* Cor do texto do botão de registro */
-  border-radius: 5px; /* Leve arredondamento das bordas */
-  padding: 8px 16px; /* Espaçamento interno do botão */
-  font-size: 15px; /* Tamanho da fonte */
-  cursor: pointer; /* Muda o cursor para pointer quando passa sobre o botão */
-  text-align: center; /* Alinha o texto no centro */
-  text-decoration: none; /* Remove o sublinhado do texto */
+  background-color: #AAC86F;
+  color: #1A1C15;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .btn-register:hover {
-  background-color: #8ab348; /* Cor de fundo do botão de registro ao passar o mouse */
+  background-color: #8ab348;
 }
 
 @media (max-width: 768px) {
   .banner-image {
-    max-width: 55%; /* Ajuste conforme necessário para dispositivos menores */
-    margin-right: 0; /* Remove o espaço à direita em telas menores */
+    max-width: 55%;
+    margin-right: 0;
     position: relative;
     top: 0px; left: 0px;
   }

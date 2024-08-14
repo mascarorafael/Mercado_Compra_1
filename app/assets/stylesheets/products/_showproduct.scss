@@ -1,0 +1,78 @@
+.btn-edit, .btn-voltar {
+  color: black !important;
+  border: 1px solid #1A1C15 !important;
+  border-radius: 5px !important;
+  padding: 7px 15px !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+
+.btn-edit:hover, .btn-voltar:hover {
+  background-color: #1A1C15 !important;
+  color: #8ab348 !important;
+}
+
+.btn-comprar {
+  background-color: #AAC86F;
+  color: #1A1C15;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-comprar:hover {
+  background-color: #8ab348;
+  color: #1A1C15;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .responsive-d-flex {
+    flex-direction: column;
+  }
+
+  .responsive-col {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .responsive-img-fluid {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .responsive-d-flex-mb {
+    flex-direction: column;
+  }
+
+  .product-card img {
+    height: auto;
+    max-height: 300px;
+    width: 100%;
+  }
+}
+
+.reviews {
+  margin-bottom: 20px;
+}

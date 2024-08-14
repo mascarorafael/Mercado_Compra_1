@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:index] # Certifique-se de que esta linha está correta e usa ações válidas.
+  before_action :authenticate_user!, only: [:index]
 
   def index
     if user_signed_in?

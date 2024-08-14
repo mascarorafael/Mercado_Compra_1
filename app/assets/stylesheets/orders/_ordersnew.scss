@@ -6,8 +6,8 @@
     text-align: center;
     display: inline-block;
     text-decoration: none;
-    width: 340px; /* Ajuste a largura desejada */
-    box-sizing: border-box; /* Inclui o padding e a borda na largura total *//* Garante que o botão não quebre para uma nova linha */
+    width: 340px;
+    box-sizing: border-box;
   }
 
 .product-table {
@@ -27,7 +27,7 @@
 }
 
 .product-table thead {
-    background-color: #E8E8D9; /* cor do fundo para o cabeçalho */
+    background-color: #E8E8D9;
 }
 
 .product-table th {

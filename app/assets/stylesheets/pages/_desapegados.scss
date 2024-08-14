@@ -1,44 +1,42 @@
-/* Garante que o contêiner principal ocupe pelo menos a altura da tela */
 .content-container-1 {
   display: flex;
-  justify-content: center; /* Centraliza o conteúdo horizontalmente */
-  align-items: center; /* Centraliza o conteúdo verticalmente */
-  min-height: 100vh; /* Altura mínima da viewport */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
-  box-sizing: border-box; /* Inclui padding e border na largura/altura */
+  box-sizing: border-box;
 }
 
 .text-image-container {
   display: flex;
-  flex-direction: row; /* Alinha o texto e a imagem horizontalmente */
-  align-items: center; /* Alinha verticalmente o texto e a imagem */
-  gap: 50px; /* Ajuste o espaçamento entre o texto e a imagem */
-  max-width: 1200px; /* Limita a largura total do contêiner */
-  width: 100%; /* Permite que o contêiner ocupe a largura disponível */
-  padding: 20px; /* Ajuste o padding para melhorar o espaçamento */
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
 }
 
 .text-content {
-  flex: 1; /* Permite que o texto ocupe o espaço disponível */
-  max-width: 600px; /* Limita a largura do texto */
+  flex: 1;
+  max-width: 600px;
   text-align: justify;
   letter-spacing: -1px;
-  margin-right: 200px; /* Espaçamento entre o texto e a imagem */
+  margin-right: 200px;
 }
 
 .text-title {
-  margin-bottom: 1rem; /* Espaçamento abaixo do título */
-  letter-spacing: .2rem; /* Espaçamento entre letras */
+  margin-bottom: 1rem;
+  letter-spacing: .2rem;
 }
 
 .image-content {
-  flex-shrink: 0; /* Impede que a imagem encolha */
-  /* Ajuste o transform se necessário para alinhar a imagem corretamente */
-  transform: translateY(-135px); /* Ajuste este valor se necessário */
+  flex-shrink: 0;
+  transform: translateY(-135px);
   margin-left: 50px;
 }
 
 .image {
-  max-width: 100%; /* Garante que a imagem não exceda seu contêiner */
-  height: auto; /* Mantém a proporção da imagem */
+  max-width: 100%;
+  height: auto;
 }

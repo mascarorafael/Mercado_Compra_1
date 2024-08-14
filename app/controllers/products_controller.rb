@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      redirect_to product_path(@product) # Redireciona para a página de show do produto
+      redirect_to product_path(@product)
     else
       render :new
     end

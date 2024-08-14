@@ -9,9 +9,11 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
-@import "pages/showproduct";
-@import "pages/newproduct";
 @import "pages/quemsomos";
 @import "pages/desapegados";
-@import "pages/indexproduct"
+@import "pages/home";
+@import "products/showproduct";
+@import "products/newproduct";
+@import "products/indexproduct";
+@import "products/newproduct";
+@import "orders/ordersnew";

@@ -2,7 +2,7 @@
   <div class="row justify-content-center text-align">
 
     <div class="d-flex mt-5 responsive-d-flex">
-      <!-- Container para as fotos -->
+
       <div class="col-12 col-lg-8 responsive-col">
         <div class="mt-5 px-4">
           <% if @product.photos.attached? %>
@@ -21,8 +21,7 @@
         </div>
       </div>
 
-      <!-- Coluna com os detalhes do produto -->
-      <div class="col-12 col-lg-4 responsive-col mt-5"> <!-- Adicione margin-left -->
+      <div class="col-12 col-lg-4 responsive-col mt-5">
         <h2 class="mb-3"><%= @product.name %></h2>
         <p><%= number_to_currency(@product.price) %></p>
         <hr class="my-4">

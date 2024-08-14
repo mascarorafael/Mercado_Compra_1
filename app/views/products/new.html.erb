@@ -10,7 +10,9 @@
         <%= f.input :photos, as: :file, label: "Envie suas imagens no botão abaixo", input_html: { accept: "image/*", multiple: true, class: "input-photo" }, wrapper_html: { class: "border-2", required: true } %>
       </div>
     </div>
-    <button type="button" id="add-photo-field-view" class="btn-new-product mb-3">Adicionar Outra Foto</button>
     <%= f.submit "Criar Produto", class: "btn-new-product" %>
+    <div data-controller="photofield" data-photofield-target="container" class="mt-2">
+      <button type="button" id="add-photo-field-view" class="btn-new-product mb-3" data-action="photofield#addField">Adicionar Outra Foto</button>
+    </div>
   <% end %>
 </div>
